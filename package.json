@@ -12,6 +12,11 @@
     "expo": "^29.0.0",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
+    "react-native-action-button": "^2.8.5",
+    "react-native-actionsheet": "^2.4.2",
     "react-navigation": "^2.12.1"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^3.1.1"
   }
 }

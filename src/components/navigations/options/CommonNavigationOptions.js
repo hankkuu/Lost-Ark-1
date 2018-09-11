@@ -1,4 +1,4 @@
-import { colors } from '../../../util/Styles';
+import { colors } from '@util/Styles';
 
 export const commonNavigationOptions = {
     headerBackTitle: null,
@@ -8,6 +8,6 @@ export const commonNavigationOptions = {
       borderBottomWidth: 1, 
       elevation: 0,   
     },
-    headerTitleStyle: { color: 'yellow'},
+    headerTitleStyle: { color: 'white'},
     headerTintColor: 'red', 
 }

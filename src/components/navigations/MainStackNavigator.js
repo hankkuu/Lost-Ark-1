@@ -3,12 +3,14 @@ import {
     Animated    
 } from "react-native";
 import { createStackNavigator } from 'react-navigation';
-import { commonNavigationOptions } from "./options/CommonNavigationOptions";
-import { MainTabNavigationOptions } from './options/MainTabNavigationOptions';
-import MainTabNavigator from './MainTabNavigator';
+import { commonNavigationOptions } from "@navigation/options/CommonNavigationOptions";
+import { MainTabNavigationOptions } from '@navigation/options/MainTabNavigationOptions';
+import MainTabNavigator from '@navigation/MainTabNavigator';
+
 
 const routeConfig = {
     MainTab: { screen: MainTabNavigator, navigationOptions: MainTabNavigationOptions },
+
 }
 const navigatorConfig = {
     initialRouteName: 'MainTab',
@@ -45,6 +47,7 @@ const MainStackNavigator = createStackNavigator(routeConfig, navigatorConfig);
 // 기본 RootStack을 지정하는 네비게이터 
 const rootRouteConfig = {
     MainRoot: { screen: MainStackNavigator },
+
 }
 const rootNavigatorConfig = {
     mode: 'card',       // default screen transitions.

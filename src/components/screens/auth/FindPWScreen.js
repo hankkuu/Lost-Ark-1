@@ -6,9 +6,9 @@ import {
     ScrollView
 } from "react-native";
 
-import { colors } from '../../../util/Styles';
-import TextInput from '../../shared/TextInput';
-import Button from '../../shared/Button';
+import { colors } from '@util/Styles';
+import TextInput from '@shared/TextInput';
+import Button from '@shared/Button';
 
 class FindPWScreen extends Component {
     static navigationOptions = {

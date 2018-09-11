@@ -4,19 +4,17 @@ import {
     Text,
     StyleSheet
 } from "react-native";
-import HomeStackNavigator from '../../navigations/HomeStackNavigator';
-// 아래 부분 스위치로 변경 
 
-class HomeScreen extends Component {
-    static router = HomeStackNavigator.router;
-
+class componentName extends Component {
     render() {
         return (
-            <HomeStackNavigator navigation={this.props.navigation}/>
+            <View style={styles.container}>
+                <Text>componentName</Text>
+            </View>
         );
     }
 }
-export default HomeScreen;
+export default componentName;
 
 const styles = StyleSheet.create({
     container: {

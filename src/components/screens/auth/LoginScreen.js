@@ -8,12 +8,12 @@ import {
     ImageBackground
 } from "react-native";
 
-import { colors, statusBarHeight } from '../../../util/Styles';
+import { colors, statusBarHeight } from '@util/Styles';
 
 //import { IC_ICON } from '../../../util/Icons';
 
-import TextInput from '../../shared/TextInput';
-import Button from '../../shared/Button';
+import TextInput from '@shared/TextInput';
+import Button from '@shared/Button';
 
 class LoginScreen extends Component {
     static navigationOptions = {

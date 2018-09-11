@@ -6,7 +6,7 @@ import {
     Image
 } from "react-native";
 
-import { statusBarHeight } from '../../util/Styles'
+import { statusBarHeight } from '@util/Styles'
 
 class SplashScreen extends Component {
     constructor(props) {

@@ -5,5 +5,5 @@
 // Expo.registerRootComponent(App);
 
 // 위 방식보다 아래 방식이 간단하다 package.json 을 건들지 않아도 된다 
-import App from './src/Main';
+import App from '@app/Main';
 export default App;

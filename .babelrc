@@ -4,5 +4,21 @@
     "development": {
       "plugins": ["transform-react-jsx-source"]
     }
-  }
+  },
+  "plugins": [
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "@screen": "./src/components/screens",
+        "@navigation": "./src/components/navigations",
+        "@util": "./src/util",
+        "@asset": "./assets",
+        "@shared": "./src/components/shared",
+        "@app": "./src",
+        "@expo": "./node_modules/@expo",
+        "@item": "./src/components/items"
+        }
+      }
+    ]
+  ]
 }

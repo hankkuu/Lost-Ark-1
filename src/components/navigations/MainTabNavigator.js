@@ -1,20 +1,21 @@
 import React from 'react';
 import { Platform, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { createMaterialTopTabNavigator } from 'react-navigation';
-import { colors } from '../../util/Styles';
+import { colors } from '@util/Styles';
 
-import HomeScreen from '../screens/mainTab/HomeScreen';
-import SearchScreen from '../screens/mainTab/SearchScreen';
-import AccountScreen from '../screens/mainTab/AccountScreen';
-import SettingsScreen from '../screens/mainTab/SettingsScreen';
+import SearchScreen from '@screen/mainTab/SearchScreen';
+import AccountScreen from '@screen/mainTab/AccountScreen';
 
-import HomeStackNavigator from './HomeStackNavigator';
+import SettingStackNavigator from '@navigation/SettingStackNavigator';
+import HomeStackNavigator from '@navigation/HomeStackNavigator';
+
 
 const TabNavigator = createMaterialTopTabNavigator({
     Home: { screen: HomeStackNavigator },
     Search: { screen: SearchScreen },
     Account: { screen: AccountScreen },
-    Settings: { screen: SettingsScreen }
+    Setting: { screen: SettingStackNavigator },
+
 }, {
         navigationOptions: ({ navigation }) => ({
             tabBarVisible: true,
@@ -27,8 +28,8 @@ const TabNavigator = createMaterialTopTabNavigator({
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Search')}</Text>;
                     case 'Account':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Account')}</Text>;
-                    case 'Settings':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Settings')}</Text>;
+                    case 'Setting':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Setting')}</Text>;
                     default:
                         return null;
                 }

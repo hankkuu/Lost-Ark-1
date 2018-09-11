@@ -5,16 +5,16 @@ import {
     StyleSheet
 } from "react-native";
 
-class SettingsScreen extends Component {
+class componentName extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>SettingsScreen</Text>
+                <Text>componentName</Text>
             </View>
         );
     }
 }
-export default SettingsScreen;
+export default componentName;
 
 const styles = StyleSheet.create({
     container: {

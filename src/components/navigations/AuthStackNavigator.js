@@ -1,12 +1,12 @@
 import { Easing, Animated } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-import { commonNavigationOptions } from './options/CommonNavigationOptions';
+import { commonNavigationOptions } from '@navigation/options/CommonNavigationOptions';
 // 화면전환시 에니메이션 효과이다... 이런 디테일은 뭐.. 옵션은 아래서 설정 
 import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 
-import LoginScreen from '../screens/auth/LoginScreen';
-import SignUpScreen from '../screens/auth/SignUpScreen';
-import FindPWScreen from '../screens/auth/FindPWScreen';
+import LoginScreen from '@screen/auth/LoginScreen';
+import SignUpScreen from '@screen/auth/SignUpScreen';
+import FindPWScreen from '@screen/auth/FindPWScreen';
 
 export default AuthStackNavigator = createStackNavigator({
     Login: { screen: LoginScreen },

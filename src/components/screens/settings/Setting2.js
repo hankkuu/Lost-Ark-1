@@ -5,16 +5,16 @@ import {
     StyleSheet
 } from "react-native";
 
-class IntroScreen extends Component {
+class componentName extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>IntroScreen</Text>
+                <Text>componentName</Text>
             </View>
         );
     }
 }
-export default IntroScreen;
+export default componentName;
 
 const styles = StyleSheet.create({
     container: {
