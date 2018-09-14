@@ -6,11 +6,15 @@ import { createStackNavigator } from 'react-navigation';
 import { commonNavigationOptions } from "@navigation/options/CommonNavigationOptions";
 import { MainTabNavigationOptions } from '@navigation/options/MainTabNavigationOptions';
 import MainTabNavigator from '@navigation/MainTabNavigator';
+import AlarmScreen from "@screen/mainTab/AlarmScreen";
+
 
 
 const routeConfig = {
     MainTab: { screen: MainTabNavigator, navigationOptions: MainTabNavigationOptions },
-
+    Alarm: { screen: AlarmScreen, navigationOptions: {
+        title: 'Alarm'
+    }}
 }
 const navigatorConfig = {
     initialRouteName: 'MainTab',
@@ -47,6 +51,8 @@ const MainStackNavigator = createStackNavigator(routeConfig, navigatorConfig);
 // 기본 RootStack을 지정하는 네비게이터 
 const rootRouteConfig = {
     MainRoot: { screen: MainStackNavigator },
+    // 셋팅을 넣나?? 뭘 넣나?? 바로 탭??
+
 
 }
 const rootNavigatorConfig = {

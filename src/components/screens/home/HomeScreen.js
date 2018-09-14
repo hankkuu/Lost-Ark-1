@@ -58,54 +58,54 @@ class HomeScreen extends Component {
                     <Text style={styles.clock}>12:33</Text>
                     <Text style={styles.content}>{this.state.notice}</Text>
                     <TouchableOpacity style={styles.link}
-                        onPress={() => this.props.navigation.navigate(name, 'Test1')}>
+                        onPress={() => this.props.navigation.navigate('Test1')}>
                         <Text>>></Text>
                     </TouchableOpacity>
                 </View>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'List')}
+                    onPress={() => this.props.navigation.navigate('List')}
                 >Best Practice</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Test1')}
+                    onPress={() => this.props.navigation.navigate('WebView')}
                 >로스트아크 N샵</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Test2')}
+                    onPress={() => this.props.navigation.navigate('Test2')}
                 >로스트아크 매거진</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Test3')}
+                    onPress={() => this.props.navigation.navigate('Test3')}
                 >사용자 커뮤니티</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Test4')}
+                    onPress={() => this.props.navigation.navigate('Test4')}
                 >전용피시방 찾기</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Test5')}
+                    onPress={() => this.props.navigation.navigate('Test5')}
                 >고객상담실</Button>
-                {/* <Button
+                <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate('')}
+                    onPress={() => this.props.navigation.navigate('')}
                 >Null</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate('')}
+                    onPress={() => this.props.navigation.navigate('')}
                 >Null</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate('')}
+                    onPress={() => this.props.navigation.navigate('')}
                 >Null</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate('')}
+                    onPress={() => this.props.navigation.navigate('')}
                 >Null</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate('')}
-                >Null</Button> */}
+                    onPress={() => this.props.navigation.navigate('')}
+                >Null</Button>
             </ScrollView>
         );
     }
@@ -142,8 +142,8 @@ const styles = StyleSheet.create({
         //alignItems: "flex-start",
         height: 30,
 
-        borderBottomColor: colors.dusk,
-        alignItems: 'center',
+        //borderColor: 'red',
+        //alignItems: 'center',
         //justifyContent: 'flex-start',
     },
     clock: {

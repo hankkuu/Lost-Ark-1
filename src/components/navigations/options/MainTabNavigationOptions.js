@@ -3,7 +3,7 @@ import { Platform, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 export const MainTabNavigationOptions = ({ navigation }) => ({
     title: 'Lost Ark',
-    headerLeft:
+    headerLeft:     
         <TouchableOpacity
             activeOpacity={0.5}
             onPress={() => navigation.navigate('Account')}

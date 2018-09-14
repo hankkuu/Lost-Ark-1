@@ -1,17 +1,49 @@
 import React, { Component } from "react";
-import { 
+import {
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    Button,
+    WebView
 } from "react-native";
+import { WebBrowser } from 'expo';
+import { statusBarHeight } from '@util/Styles';
 
 class Test1Screen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            result: null
+        }
+        //this.linkWebBowser();
+    }
+    linkWebBowser = async () => {
+        let result = await WebBrowser.openBrowserAsync('http://m-lostark.game.onstove.com/Main');
+        console.log(result);
+        this.setState({
+            result: result
+        })
+    }
+
     render() {
         return (
-            <View style={styles.container}>
-                <Text>Test1Screen</Text>
+            // <WebView style={styles.container}
+            //          source={{ uri: 'http://m-lostark.game.onstove.com/Main' }}
+            // >
+            //     {/* {this.state.result.type === cancle ? this.props.navigation.navigate(Home) : null} */}
+            // </WebView>
+            <View>
+                <Button
+                    title='test'
+                    onPress={this.test}
+                >
+                </Button>
             </View>
         );
+    }
+    test = () => {
+        console.log(this.props.navigation)
+        this.props.navigation.navigate("HomeStack");
     }
 }
 export default Test1Screen;
@@ -20,6 +52,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        //paddingTop: statusBarHeight,
     }
 });

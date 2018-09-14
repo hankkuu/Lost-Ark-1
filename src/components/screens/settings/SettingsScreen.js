@@ -25,27 +25,27 @@ class SettingsScreen extends Component {
             >
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Setting1')}
+                    onPress={() => NavigationService.navigate('Notice')}
                 >공지</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Setting2')}
+                    onPress={() => NavigationService.navigate('SystemAlarm')}
                 >알람설정</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Setting3')}
+                    onPress={() => NavigationService.navigate('Setting3')}
                 >보안</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Setting4')}
+                    onPress={() => NavigationService.navigate('Setting4')}
                 >도움말</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Setting5')}
+                    onPress={() => NavigationService.navigate('Setting5')}
                 >고객센터</Button>
                 <Button
                     style={styles.btn}
-                    onPress={() => NavigationService.navigate(name, 'Setting6')}
+                    onPress={() => NavigationService.navigate('Setting6')}
                 >버전정보</Button>
             </ScrollView>
         );

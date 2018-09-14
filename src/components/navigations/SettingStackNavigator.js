@@ -1,21 +1,20 @@
 import { createStackNavigator } from 'react-navigation';
 import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 import React from 'react';
+import { View } from 'react-native'
 import NavigationService from '@navigation/options/NavigationService';
 
-import Setting1 from '@screen/settings/Setting1';
-import Setting2 from '@screen/settings/Setting2';
-import Setting3 from '@screen/settings/Setting3';
 import Setting4 from '@screen/settings/Setting4';
 import Setting5 from '@screen/settings/Setting5';
 import Setting6 from '@screen/settings/Setting6';
 import SettingsScreen from '@screen/settings/SettingsScreen';
+import NoticeScreen from '@screen/settings/NoticeScreen';
+import SystemAlarmScreen from '@screen/settings/SystemAlarmScreen';
 
 const routeConfig = {
     main: { screen: SettingsScreen },
-    Setting1: { screen: Setting1 },
-    Setting2: { screen: Setting2 },
-    Setting3: { screen: Setting3 },
+    Notice: { screen: NoticeScreen },
+    SystemAlarm: { screen: SystemAlarmScreen },
     Setting4: { screen: Setting4 },
     Setting5: { screen: Setting5 },
     Setting6: { screen: Setting6 },
@@ -35,7 +34,7 @@ const SettingsStackNavigator = createStackNavigator(routeConfig, navigatorConfig
 const SettingsStack = () => {
     return (
         <SettingsStackNavigator ref={(navi) => {
-                                    NavigationService.setTopLevelNavigator("Setting", navi);
+                                    NavigationService.setTopLevelNavigator(navi);
                                 }}
         />
     );

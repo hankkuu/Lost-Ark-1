@@ -11,24 +11,23 @@ import HomeStackNavigator from '@navigation/HomeStackNavigator';
 
 
 const TabNavigator = createMaterialTopTabNavigator({
-    Home: { screen: HomeStackNavigator },
+    HomeStack: { screen: HomeStackNavigator },
     Search: { screen: SearchScreen },
     Account: { screen: AccountScreen },
-    Setting: { screen: SettingStackNavigator },
-
+    SettingStack: { screen: SettingStackNavigator },
 }, {
         navigationOptions: ({ navigation }) => ({
             tabBarVisible: true,
             tabBarLabel: ({ focused }) => {
                 const { routeName } = navigation.state;
                 switch (routeName) {
-                    case 'Home':
+                    case 'HomeStack':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Home')}</Text>;
                     case 'Search':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Search')}</Text>;
                     case 'Account':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Account')}</Text>;
-                    case 'Setting':
+                    case 'SettingStack':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Setting')}</Text>;
                     default:
                         return null;

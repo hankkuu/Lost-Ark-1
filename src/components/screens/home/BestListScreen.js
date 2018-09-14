@@ -65,7 +65,7 @@ class BestListScreen extends Component {
     // ({item, index}) = Object  이렇게 하면 전체 객체에서 item과 index 부분만 가져올 수 있다 
     // (item, index) => { }  이렇게 사용할 경우는 item.item 에 접근해서 직접 꺼내와야 한다 
     renderItem = ({item, index}) => {
-        console.log(index);
+        //console.log(index);
         const listItem = 
             <UserListItem 
                 item={item}

@@ -74,8 +74,8 @@ class LoginScreen extends Component {
                             <Text style={styles.txtFindPW}>{'Find my password'}</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={{ flexDirection: "row", }}>
-                        <Image style={styles.imgCopyright} source={require('../../../../assets/smilegate_rpg.png')} ></Image>
+                    <View style={{ flexDirection: "row-reverse", }}>
+                        {/* <Image style={styles.imgCopyright} source={require('../../../../assets/smilegate_rpg.png')} ></Image> */}
                         <Text style={styles.txtCopyright}>copyright by smilegate RPG</Text>
                     </View>
                 </ImageBackground>
