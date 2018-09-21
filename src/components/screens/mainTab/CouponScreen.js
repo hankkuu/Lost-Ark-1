@@ -5,16 +5,19 @@ import {
     StyleSheet
 } from "react-native";
 
-class Test4Screen extends Component {
+class CouponScreen extends Component {
+    static navigatonOptions = {
+        headerTitleStyle :{textAlign: 'center',alignSelf:'center'},
+    }
     render() {
         return (
             <View style={styles.container}>
-                <Text>dfgsdfgsfdg</Text>
+                <Text>CouponScreen</Text>
             </View>
         );
     }
 }
-export default Test4Screen;
+export default CouponScreen;
 
 const styles = StyleSheet.create({
     container: {

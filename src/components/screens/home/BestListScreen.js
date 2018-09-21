@@ -11,6 +11,7 @@ import { Ionicons } from '@expo/vector-icons';
 import ActionButton from 'react-native-action-button';
 import ActionSheet from 'react-native-actionsheet';
 import UserListItem from '@item/UserListItem';
+import DetailListScreen from "./DetailListScreen";
 
 class BestListScreen extends Component {
     constructor(props) {
@@ -21,10 +22,10 @@ class BestListScreen extends Component {
         }
 
         const dummy = [
-            { uid: 0, img: 'IC_KangHG', displayName: '강한규', statusMsg: 'hello' },
-            { uid: 1, img: 'IC_IMHG', displayName: '임형관', statusMsg: 'hello' },
-            { uid: 2, img: 'IC_JungDM', displayName: '정동민', statusMsg: 'hello' },
-            { uid: 3, img: 'IC_KimSK', displayName: '김성기', statusMsg: 'hello' },
+            { uid: 0, img: 'KangHG', displayName: '강한규', statusMsg: 'hello' },
+            { uid: 1, img: 'IMHG', displayName: '임형관', statusMsg: 'hello' },
+            { uid: 2, img: 'JungDM', displayName: '정동민', statusMsg: 'hello' },
+            { uid: 3, img: 'KimSK', displayName: '김성기', statusMsg: 'hello' },
         ]
         this.state.friends = dummy;
     }
@@ -76,6 +77,7 @@ class BestListScreen extends Component {
     }
     onItemClick = (item) => {
         const { friends } = this.state;
+        //<DetailListScreen />
         this.props.navigation.navigate('Detail', { user: item, list: friends });
     }
     onAdd = () => {

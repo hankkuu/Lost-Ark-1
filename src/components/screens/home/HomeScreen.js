@@ -12,6 +12,7 @@ import Button from '@shared/Button';
 import { colors } from '@util/Styles'
 
 class HomeScreen extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -62,50 +63,56 @@ class HomeScreen extends Component {
                         <Text>>></Text>
                     </TouchableOpacity>
                 </View>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('List')}
-                >Best Practice</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('WebView')}
-                >로스트아크 N샵</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('Test2')}
-                >로스트아크 매거진</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('Test3')}
-                >사용자 커뮤니티</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('Test4')}
-                >전용피시방 찾기</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('Test5')}
-                >고객상담실</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('')}
-                >Null</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('')}
-                >Null</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('')}
-                >Null</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('')}
-                >Null</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => this.props.navigation.navigate('')}
-                >Null</Button>
+                <View style={{ flex: 1 ,flexDirection: "row", flexWrap: 'wrap', justifyContent: 'center'}}>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('List')}
+                    >Best Practice</Button>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('WebView')}
+                    >로스트아크 N샵</Button>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('List2')}
+                    >로스트아크 매거진</Button>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('Test3')}
+                    >사용자 커뮤니티</Button>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('Test4')}
+                    >전용피시방 찾기</Button>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('Search')}
+                    >고객상담실</Button>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('')}
+                    >Null</Button>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('')}
+                    >Null</Button>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('')}
+                    >Null</Button>
+                     <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('')}
+                    >Null</Button>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('')}
+                    >Null</Button>
+                    <Button
+                        style={styles.btn}
+                        onPress={() => this.props.navigation.navigate('')}
+                    >Null</Button>
+                </View>
             </ScrollView>
         );
     }
@@ -125,13 +132,13 @@ const styles = StyleSheet.create({
     },
     btn: {
         backgroundColor: colors.dusk,
-        alignSelf: 'center',
+        //alignSelf: 'center',
         borderRadius: 4,
         borderWidth: 2,
-        width: 240,
-        height: 52,
+        width: 130,
+        height: 152,
         borderColor: 'white',
-        marginBottom: 25,
+        //marginBottom: 25,
 
         alignItems: 'center',
         justifyContent: 'center',

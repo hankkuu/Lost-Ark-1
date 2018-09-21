@@ -7,19 +7,41 @@ import { commonNavigationOptions } from "@navigation/options/CommonNavigationOpt
 import { MainTabNavigationOptions } from '@navigation/options/MainTabNavigationOptions';
 import MainTabNavigator from '@navigation/MainTabNavigator';
 import AlarmScreen from "@screen/mainTab/AlarmScreen";
+import MyScreen from "@screen/mainTab/MyScreen";
+import NewContents2 from "../screens/newContents/NewContents2";
+import NewContents3 from "../screens/newContents/NewContents3";
+import NewContents4 from "../screens/newContents/NewContents4";
+import NoticeScreen from "../screens/mainTab/NoticeScreen";
+import PresentScreen from "../screens/mainTab/PresentScreen";
+import CouponScreen from "../screens/mainTab/CouponScreen";
 
 
 
 const routeConfig = {
-    MainTab: { screen: MainTabNavigator, navigationOptions: MainTabNavigationOptions },
+    MainTab: { 
+        screen: MainTabNavigator, navigationOptions: MainTabNavigationOptions
+    },
     Alarm: { screen: AlarmScreen, navigationOptions: {
         title: 'Alarm'
-    }}
+    }},
+    My: { screen: MyScreen },
+    New2: { screen: NewContents2 },
+    Notice: { screen: NoticeScreen, navigationOptions: {
+        title: 'Notice'
+    }},
+    Present: { screen: PresentScreen, navigationOptions: {
+        title: 'Present'
+    }},
+    Coupon: { screen: CouponScreen, navigationOptions: {
+        title: 'Coupon'
+    }},
+    New3: { screen: NewContents3 },
 }
 const navigatorConfig = {
     initialRouteName: 'MainTab',
     gesturesEnabled: true,
     navigationOptions: commonNavigationOptions,
+    
     // https://reactnavigation.org/docs/en/stack-navigator.html#modal-stacknavigator-with-custom-screen-transitions
     transitionConfig: () => ({
         transitionSpec: {
@@ -52,8 +74,7 @@ const MainStackNavigator = createStackNavigator(routeConfig, navigatorConfig);
 const rootRouteConfig = {
     MainRoot: { screen: MainStackNavigator },
     // 셋팅을 넣나?? 뭘 넣나?? 바로 탭??
-
-
+    New4: { screen: NewContents4 }
 }
 const rootNavigatorConfig = {
     mode: 'card',       // default screen transitions.

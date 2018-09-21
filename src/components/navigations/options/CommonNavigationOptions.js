@@ -8,6 +8,12 @@ export const commonNavigationOptions = {
       borderBottomWidth: 1, 
       elevation: 0,   
     },
-    headerTitleStyle: { color: 'white'},
+    headerTitleStyle: { 
+      color: 'white',  
+      textAlign: 'center'   //
+    },
+    titleStyle: {
+      textAlign: 'center'   //
+    },
     headerTintColor: 'red', 
 }

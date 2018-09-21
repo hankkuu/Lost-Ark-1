@@ -1,6 +1,6 @@
 import { createSwitchNavigator } from 'react-navigation';
 
-import LoadingScreen from '@screen/LoadingScreen';
+import Loading from '@screen/LoadingScreen';
 import AuthStackNavigator from '@navigation/AuthStackNavigator';
 import MainStackNavigator from '@navigation/MainStackNavigator';
 import SplashScreen from '@screen/SplashScreen';
@@ -12,7 +12,7 @@ import SplashScreen from '@screen/SplashScreen';
 
 export default createSwitchNavigator({
     Splash: { screen: SplashScreen },
-    Loading: { screen: LoadingScreen },
+    Loading: { screen: Loading },
     Auth: { screen: AuthStackNavigator },
     Main: { screen: MainStackNavigator },
 

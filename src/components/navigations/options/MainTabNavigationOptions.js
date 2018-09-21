@@ -1,22 +1,32 @@
 import React from 'react';
-import { Platform, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { Platform, StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 
 export const MainTabNavigationOptions = ({ navigation }) => ({
-    title: 'Lost Ark',
+    title: '                    Lost Ark',
+
     headerLeft:     
         <TouchableOpacity
             activeOpacity={0.5}
-            onPress={() => navigation.navigate('Account')}
+            onPress={() => navigation.navigate('My')}
         >
             <Text>계정<Text style={styles.txtSub}>0</Text></Text>
         </TouchableOpacity>,
     headerRight:
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        {/* <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => navigation.navigate('New2')}
+            style={{marginRight: 10}}
+        >
+            <Text>검색</Text>
+        </TouchableOpacity> */}
         <TouchableOpacity
             activeOpacity={0.5}
             onPress={() => navigation.navigate('Alarm')}
         >
             <Text>알람<Text style={styles.txtSub}>0</Text></Text>
-        </TouchableOpacity>,
+        </TouchableOpacity>
+        </View>,
 })
 
 const styles = StyleSheet.create({

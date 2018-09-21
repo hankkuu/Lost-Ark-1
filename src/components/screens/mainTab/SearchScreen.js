@@ -29,21 +29,21 @@ class SearchScreen extends Component {
 
     componentDidMount() {
         users = [
-            { uid: 0, img: 'IC_KangHG', displayName: '강한규', statusMsg: 'hello'  },
-            { uid: 1, img: 'IC_IMHG', displayName: '임형관', statusMsg: 'hello' },
-            { uid: 2, img: 'IC_JungDM', displayName: '정동민', statusMsg: 'hello' },
-            { uid: 3, img: 'IC_KimSK', displayName: '김성기', statusMsg: 'hello' },
-            { uid: 4, img: 'IC_KimYH', displayName: '김윤희', statusMsg: 'hello' },
-            { uid: 5, img: 'IC_LeeWG', displayName: '이원지', statusMsg: 'hello' },
-            { uid: 6, img: 'IC_LeeDY', displayName: '이동용', statusMsg: 'hello' },
-            { uid: 7, img: 'IC_JungIS', displayName: '정인수', statusMsg: 'hello' },
-            { uid: 8, img: 'IC_JungJY', displayName: '정재윤', statusMsg: 'hello' },
-            { uid: 9, img: 'IC_JungGH', displayName: '정규호', statusMsg: 'hello' },
-            { uid: 10, img: 'IC_ParkKW', displayName: '박경원', statusMsg: 'hello' },
-            { uid: 11, img: 'IC_LeeMH', displayName: '이명호', statusMsg: 'hello' },
-            { uid: 12, img: 'IC_AnMH', displayName: '안명환', statusMsg: 'hello' },
-            { uid: 13, img: 'IC_LeeYG', displayName: '이윤관', statusMsg: 'hello' },
-            { uid: 14, img: 'IC_OhYT', displayName: '오용택', statusMsg: 'hello' },        
+            { uid: 0, img: 'KangHG', displayName: '강한규', statusMsg: 'hello'  },
+            { uid: 1, img: 'IMHG', displayName: '임형관', statusMsg: 'hello' },
+            { uid: 2, img: 'JungDM', displayName: '정동민', statusMsg: 'hello' },
+            { uid: 3, img: 'KimSK', displayName: '김성기', statusMsg: 'hello' },
+            { uid: 4, img: 'KimYH', displayName: '김윤희', statusMsg: 'hello' },
+            { uid: 5, img: 'LeeWG', displayName: '이원지', statusMsg: 'hello' },
+            { uid: 6, img: 'LeeDY', displayName: '이동용', statusMsg: 'hello' },
+            { uid: 7, img: 'JungIS', displayName: '정인수', statusMsg: 'hello' },
+            { uid: 8, img: 'JungJY', displayName: '정재윤', statusMsg: 'hello' },
+            { uid: 9, img: 'JungGH', displayName: '정규호', statusMsg: 'hello' },
+            { uid: 10, img: 'ParkKW', displayName: '박경원', statusMsg: 'hello' },
+            { uid: 11, img: 'LeeMH', displayName: '이명호', statusMsg: 'hello' },
+            { uid: 12, img: 'AnMH', displayName: '안명환', statusMsg: 'hello' },
+            { uid: 13, img: 'LeeYG', displayName: '이윤관', statusMsg: 'hello' },
+            { uid: 14, img: 'OhYT', displayName: '오용택', statusMsg: 'hello' },        
         ]
         this._users = users;
         this.setState({

@@ -5,16 +5,16 @@ import {
     StyleSheet
 } from "react-native";
 
-class Test4Screen extends Component {
+class PresentScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>dfgsdfgsfdg</Text>
+                <Text>PresentScreen</Text>
             </View>
         );
     }
 }
-export default Test4Screen;
+export default PresentScreen;
 
 const styles = StyleSheet.create({
     container: {

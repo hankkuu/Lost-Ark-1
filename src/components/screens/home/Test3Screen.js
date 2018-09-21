@@ -5,12 +5,29 @@ import {
     StyleSheet
 } from "react-native";
 
+import { createSwitchNavigator } from 'react-navigation';
+import Test4Screen from '@screen/home/Test4Screen'
+
+const routeConfig = {
+    Intro: {
+        screen: Test4Screen,
+        navigationOptions: {
+            title: 'test'
+        }
+    }
+}
+const navigatorConfig = {
+    initialRouteName: 'Intro',
+    gesturesEnabled: true,
+}
+const Swich = createSwitchNavigator(routeConfig, navigatorConfig);
+
 class Test3Screen extends Component {
+    static router = Swich.router;
     render() {
         return (
-            <View style={styles.container}>
-                <Text>Test1Screen</Text>
-            </View>
+            <Swich navigation={this.props.navigation}>                
+            </Swich>
         );
     }
 }

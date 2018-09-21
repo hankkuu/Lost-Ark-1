@@ -10,6 +10,37 @@ import {
 
 import * as Animatable from 'react-native-animatable';
 
+const Loading = (props) => {
+    //console.log(props);
+    const auth = props.navigation.state.params;
+    if(auth !== undefined && auth !== null) {
+        if(auth.isLogin === true) {
+            props.navigation.navigate('Main');
+        } else {
+            Alert.alert('로그인에 실패 했습니다')
+            props.navigation.Navigate('Auth');
+        }
+    } else {
+        _switchAuth(props);
+    } 
+    return (
+        null
+    )
+}
+export default Loading;
+
+_switchAuth = async (props) => {
+    const userToken = await AsyncStorage.getItem("userToken");
+    console.log(userToken);
+    if(userToken !== null) {
+        props.navigation.navigate("Main");
+    } else {
+        props.navigation.navigate("Auth");
+    }
+}
+
+
+// Loading에서는 화면 처리를 따로 안함 
 class LoadingScreen extends Component {
     constructor(props) {
         super(props);
@@ -40,6 +71,7 @@ class LoadingScreen extends Component {
 
     _switchAuth = async () => {
         const userToken = await AsyncStorage.getItem("userToken");
+        console.log(userToken);
         if(userToken !== null) {
             this.props.navigation.navigate("Main");
         } else {
@@ -102,7 +134,7 @@ class LoadingScreen extends Component {
         );
     }
 }
-export default LoadingScreen;
+//export default LoadingScreen;
 
 const styles = StyleSheet.create({
     container: {

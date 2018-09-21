@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     img : {
         alignSelf:'center', 
         //resizeMode:'cover',
-        width:50, 
+        width:80, 
         height:50, 
         //borderRadius:25
     },

@@ -3,14 +3,19 @@ import {
     View,
     Text,
     StyleSheet,
-    Image
+    Image,
 } from "react-native";
+import { AppLoading } from 'expo';
 
 import { statusBarHeight } from '@util/Styles'
 
 class SplashScreen extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            isReady: false
+        }
+
         setTimeout(() => {
             props.navigation.navigate('Loading');
         }, 1500);
@@ -29,8 +34,28 @@ class SplashScreen extends Component {
     //     }, 1500);
     // }
 
+    async _auth() {
+        const userToken = await AsyncStorage.getItem("userToken");
+        //console.log(userToken);
+        if(userToken !== null) {
+            this.props.navigation.navigate("Main");
+        } else {
+            this.props.navigation.navigate("Auth");
+        }
+    }
+
     render() {
         const text = 'Lost Ark';
+        // if(!this.state.isReady) {
+        //     return (
+        //         <AppLoading 
+        //             startAsync={this._auth.bind(this)}
+        //             onFinish={() => this.setState({ isReady: true })}
+        //             onError={console.warn}
+        //         />
+        //     );
+        // }
+
         return (
             <View style={styles.container}>
                 <View style={styles.splash} >
@@ -53,20 +78,22 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         //paddingTop: statusBarHeight,
+        //width: '100%',
+        //height: '100%',
     },
     splash: {
         position: 'absolute',
-        //flexDirection: 'column',
-        top: 0,
-        left: 0,
+        flexDirection: 'column',
+        //top: 0,
+        //left: 0,
         width: '100%',
         height: '100%',
     },
     imgSplash: {
         //flex: 1,
         width: '100%',
-        height: '105%',
-        resizeMode: 'contain'
+        height: '100%', // 높이가 안맞는 이유 확인 
+        //resizeMode: 'contain'
     },
     txtSplash: {
         textAlign: 'center',
