@@ -4,6 +4,7 @@ import {
     Text,
     StyleSheet,
     Image,
+    AsyncStorage
 } from "react-native";
 import { AppLoading } from 'expo';
 
@@ -16,9 +17,11 @@ class SplashScreen extends Component {
             isReady: false
         }
 
-        setTimeout(() => {
-            props.navigation.navigate('Loading');
-        }, 1500);
+        this.appAuth();
+
+        // setTimeout(() => {
+        //     props.navigation.navigate('Loading');
+        // }, 1500);
     }
     // component 함수는 react component life cycle 에서 온 것인데 일단 필요한 경우에만 넣도록 하자
     // componentDidMount() {
@@ -34,14 +37,28 @@ class SplashScreen extends Component {
     //     }, 1500);
     // }
 
-    async _auth() {
+    async appAuth() {
         const userToken = await AsyncStorage.getItem("userToken");
         //console.log(userToken);
         if(userToken !== null) {
             this.props.navigation.navigate("Main");
         } else {
-            this.props.navigation.navigate("Auth");
+            setTimeout(() => {
+                this.props.navigation.navigate("Auth");
+            }, 3000);           
         }
+
+        // const auth = props.navigation.state.params;
+        // if (auth !== undefined && auth !== null) {
+        //     if (auth.isLogin === true) {
+        //         props.navigation.navigate('Main');
+        //     } else {
+        //         Alert.alert('로그인에 실패 했습니다')
+        //         props.navigation.Navigate('Auth');
+        //     }
+        // } else {
+        //     _switchAuth(props);
+        // } 
     }
 
     render() {

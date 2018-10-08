@@ -14,7 +14,7 @@ import { colors } from '@util/Styles'
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
-class SearchScreen extends Component {
+class AuctionScreen extends Component {
 
     _users = []
 
@@ -172,7 +172,7 @@ class SearchScreen extends Component {
 
 
 }
-export default SearchScreen;
+export default AuctionScreen;
 
 const styles = StyleSheet.create({
     container: {

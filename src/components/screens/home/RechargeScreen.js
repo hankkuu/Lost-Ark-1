@@ -5,16 +5,16 @@ import {
     StyleSheet
 } from "react-native";
 
-class NewContents3 extends Component {
+class RechargeScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>NewContents3</Text>
+                <Text>RechargeScreen</Text>
             </View>
         );
     }
 }
-export default NewContents3;
+export default RechargeScreen;
 
 const styles = StyleSheet.create({
     container: {

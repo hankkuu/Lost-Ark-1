@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import {
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity
 } from "react-native";
 
-class List2ItemScreen extends Component {
+class MyShopScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -78,7 +79,7 @@ class List2ItemScreen extends Component {
         );
     }
 }
-export default List2ItemScreen;
+export default MyShopScreen;
 
 const styles = StyleSheet.create({
     container: {

@@ -5,16 +5,16 @@ import {
     StyleSheet
 } from "react-native";
 
-class NewContents4 extends Component {
+class AdditionServiceScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>NewContents4</Text>
+                <Text>부가서비스를 할거다</Text>
             </View>
         );
     }
 }
-export default NewContents4;
+export default AdditionServiceScreen;
 
 const styles = StyleSheet.create({
     container: {

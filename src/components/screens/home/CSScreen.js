@@ -7,7 +7,7 @@ import {
     Image
 } from "react-native";
 
-class NewContents2 extends Component {
+class CSScreen extends Component {
     constructor(props) {
         super(props)
         this.state= {
@@ -34,7 +34,7 @@ class NewContents2 extends Component {
         );
     }
 }
-export default NewContents2;
+export default CSScreen;
 
 const styles = StyleSheet.create({
     container: {

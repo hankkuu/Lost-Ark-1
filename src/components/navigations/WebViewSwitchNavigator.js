@@ -1,10 +1,10 @@
 import { createSwitchNavigator } from 'react-navigation';
 import React from 'react';
 
-import Test3Screen from '../screens/home/Test3Screen';
+import CouponScreen from '../screens/home/CouponScreen';
 
 const routeConfig = {
-    Test : { screen: Test3Screen }
+    Test : { screen: CouponScreen }
 }
 
 const navigatorConfig = {

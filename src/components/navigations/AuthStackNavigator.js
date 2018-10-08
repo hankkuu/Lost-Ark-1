@@ -16,7 +16,9 @@ export default AuthStackNavigator = createStackNavigator({
     initialRouteName: "Login",
     navigationOptions: commonNavigationOptions,
 
+    // 아래 방식은 옛날 방식이다 경로를 지정해 주는데 이 경로가 라이브러리 버전이 바뀌면 같이 바뀐다 
     //transitionConfig: () => ({ screenInterpolator: StackViewStyleInterpolator.forFade }),
+    // 이 방식을 더 알아야 할 듯 
     // https://reactnavigation.org/docs/en/stack-navigator.html#modal-stacknavigator-with-custom-screen-transitions
     transitionConfig: () => ({
         transitionSpec: {

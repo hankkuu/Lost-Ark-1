@@ -21,7 +21,7 @@ const Loading = (props) => {
             props.navigation.Navigate('Auth');
         }
     } else {
-        _switchAuth(props);
+        //_switchAuth(props);
     } 
     return (
         null

@@ -1,34 +1,40 @@
 import React from 'react';
 import { Platform, StyleSheet, TouchableOpacity, Text } from 'react-native';
-import { createMaterialTopTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { colors } from '@util/Styles';
 
-import SearchScreen from '@screen/mainTab/SearchScreen';
-import AccountScreen from '@screen/mainTab/AccountScreen';
+import AuctionScreen from '@screen/mainTab/AuctionScreen';
+import ShopScreen from '@screen/mainTab/ShopScreen';
 
 import SettingStackNavigator from '@navigation/SettingStackNavigator';
 import HomeStackNavigator from '@navigation/HomeStackNavigator';
+import { commonNavigationOptions } from '@navigation/options/CommonNavigationOptions';
+import HomeScreen from '@screen/home/HomeScreen'
+import { MainTabNavigationOptions } from '@navigation/options/MainTabNavigationOptions';
 
-
-const TabNavigator = createMaterialTopTabNavigator({
-    HomeStack: { screen: HomeStackNavigator },
-    Search: { screen: SearchScreen },
-    Account: { screen: AccountScreen },
+const TabNavigator = createBottomTabNavigator({
+    Home: { screen: HomeStackNavigator, }, 
+    Auction: { screen: AuctionScreen, navigationOptions: commonNavigationOptions },
+    Shop: { screen: ShopScreen },
     SettingStack: { screen: SettingStackNavigator },
 }, {
         navigationOptions: ({ navigation }) => ({
+            //...MainTabNavigationOptions,
+            //header: null,
+            
             tabBarVisible: true,
             tabBarLabel: ({ focused }) => {
                 const { routeName } = navigation.state;
                 switch (routeName) {
-                    case 'HomeStack':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Home')}</Text>;
-                    case 'Search':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Search')}</Text>;
-                    case 'Account':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Account')}</Text>;
+                    case 'Home':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('My')}</Text>;
+                    case 'Auction':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('경매장')}</Text>;
+                    case 'Shop':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('상점')}</Text>;
                     case 'SettingStack':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Setting')}</Text>;
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('설정')}</Text>;
                     default:
                         return null;
                 }
@@ -40,10 +46,20 @@ const TabNavigator = createMaterialTopTabNavigator({
             indicatorStyle: {
                 backgroundColor: 'red'
             },
+            labelStyle: {
+                fontSize: 27,
+                //justifyContent: 'center',
+                //alignItems: 'center',
+            },
             style: {
-                height: 40,
+                height: 50,
+                //justifyContent: 'center',
+                backgroundColor: colors.darkBlue,
+                //alignItems: 'center',
+            },
+            tabStyle: {
                 justifyContent: 'center',
-                backgroundColor: colors.dusk
+                alignItems: 'center',
             }
         }
     })
@@ -53,6 +69,9 @@ const styles = StyleSheet.create({
     txt: {
         color: 'white',
         fontSize: 15,
+        marginBottom: 15,
+        //justifyContent: 'center',
+        //alignItems: 'center',
     },
     txtSub: {
         color: 'white',

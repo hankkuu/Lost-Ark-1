@@ -9,13 +9,13 @@ import {
 import { WebBrowser } from 'expo';
 import { statusBarHeight } from '@util/Styles';
 
-class Test1Screen extends Component {
+class PcRoomScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
             result: null
         }
-        //this.linkWebBowser();
+        this.linkWebBowser();
     }
     linkWebBowser = async () => {
         let result = await WebBrowser.openBrowserAsync('http://m-lostark.game.onstove.com/Main');
@@ -43,10 +43,10 @@ class Test1Screen extends Component {
     }
     test = () => {
         console.log(this.props.navigation)
-        this.props.navigation.navigate("HomeStack");
+        this.props.navigation.navigate("Home");
     }
 }
-export default Test1Screen;
+export default PcRoomScreen;
 
 const styles = StyleSheet.create({
     container: {

@@ -12,14 +12,14 @@ class NoticeItem extends Component {
         //console.log(props);
     }
     render() {
-        const { img, displayName } = this.props.item;
+        const { img, content } = this.props.item;
         return (
             <View style={styles.container}>
                 <TouchableOpacity
                     onPress={this.props.onPress}
                 >
                     <Text style={{ fontSize: 20 }}>{img}</Text>
-                    <Text style={{ paddingLeft: 50 }}>{displayName}</Text>
+                    <Text style={{ paddingLeft: 50 }}>{content}</Text>
                 </TouchableOpacity>
             </View>
         );

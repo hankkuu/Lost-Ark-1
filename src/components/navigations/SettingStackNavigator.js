@@ -24,7 +24,7 @@ const navigatorConfig = {
     initialRouteName: 'main',
     gesturesEnabled: true,
     navigationOptions: {
-        header: null,
+        //header: null,
     },
     transitionConfig: () => ({ screenInterpolator: StackViewStyleInterpolator.forFade, }),
 }
