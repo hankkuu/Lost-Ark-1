@@ -31,9 +31,7 @@ export const HeaderNavigationOptions = ({ navigation }) => ({
         return (
             <TouchableOpacity
                 activeOpacity={0.5}
-                onPress={() => {                    
-                    navigation.navigate('Alarm')
-                }}
+                onPress={() => { navigation.navigate('Alarm') }}
             >
                 <Text style={styles.txt}>알람
                    <Text style={styles.txtSub}>3</Text>
@@ -46,10 +44,8 @@ export const HeaderNavigationOptions = ({ navigation }) => ({
                 activeOpacity={0.5}
                 onPress={() => navigation.navigate('My')}
             >
-                <Text>계정</Text>
-            </TouchableOpacity>
-         
-    ,
+                <Text style={styles.txt}>계정</Text>
+            </TouchableOpacity>,
 })
 
 
@@ -62,7 +58,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 15,
         fontWeight: '700',
-        marginLeft: 5,
+        left: 55,
     },
     imgHeaderLeft: {
         marginLeft: 20,

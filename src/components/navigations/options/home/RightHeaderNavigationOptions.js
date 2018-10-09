@@ -37,7 +37,14 @@ export const RightHeaderNavigationOptions = ({ navigation }) => ({
     },
     title: navigation.state.routeName,
     headerTintColor: 'white',
-    headerRight: Right,
+    headerRight: 
+            <TouchableOpacity
+                activeOpacity={0.5}
+                onPress={() => {console.log(navigation.state.routeName)}}
+            >
+                <Text style={styles.txt}>My</Text>
+            </TouchableOpacity>
+        ,
 })
 
 

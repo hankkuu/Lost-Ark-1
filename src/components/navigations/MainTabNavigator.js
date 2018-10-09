@@ -15,9 +15,9 @@ import { MainTabNavigationOptions } from '@navigation/options/MainTabNavigationO
 
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: HomeStackNavigator, }, 
-    Auction: { screen: AuctionScreen, navigationOptions: commonNavigationOptions },
+    Auction: { screen: AuctionScreen, },
     Shop: { screen: ShopScreen },
-    SettingStack: { screen: SettingStackNavigator },
+    SettingStack: { screen: SettingStackNavigator, navigationOptions: { header: null } },
 }, {
         navigationOptions: ({ navigation }) => ({
             //...MainTabNavigationOptions,

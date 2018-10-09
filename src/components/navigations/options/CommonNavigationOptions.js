@@ -42,6 +42,45 @@ export const commonNavigationOptions = ({navigation}) => ({
 
 })
 
+// export default {
+//   headerBackTitle: null,
+
+//   headerStyle: {
+//     backgroundColor: colors.blueyGray,
+//     borderBottomColor: 'red',
+//     borderBottomWidth: 1,
+//     elevation: 0,
+//     //
+//   },
+//   headerTitleStyle: {
+//     flex: 1,
+//     color: 'white',
+//     textAlign: 'center',   //
+//     alignSelf: 'center'
+//   },
+//   // headerTitleStyle: {
+//   //   textAlign: 'center'   //
+//   // },
+//   headerTintColor: 'red',
+
+//         // <View style={{flexDirection: 'row', alignItems: 'center'}}>
+//         // {/* <TouchableOpacity
+//         //     activeOpacity={0.5}
+//         //     onPress={() => navigation.navigate('New2')}
+//         //     style={{marginRight: 10}}
+//         // >
+//         //     <Text>검색</Text>
+//         // </TouchableOpacity> */}
+//         // <TouchableOpacity
+//         //     activeOpacity={0.5}
+//         //     onPress={() => navigation.navigate('Alarm')}
+//         // >
+//         //   <Text>계정<Text style={styles.txtSub}>0</Text></Text>
+//         // </TouchableOpacity>
+//         // </View>,
+
+// }
+
 const styles = StyleSheet.create({
   txt: {
       color: 'white',

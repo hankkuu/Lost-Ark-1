@@ -22,15 +22,11 @@ import { commonNavigationOptions } from "@navigation/options/CommonNavigationOpt
 import React from 'react';
 import { HeaderNavigationOptions } from '@navigation/options/home/HeaderNavigationOptions';
 import { RightHeaderNavigationOptions } from "@navigation/options/home/RightHeaderNavigationOptions"
-import MainTabNavigationOptions from '@navigation/options/MainTabNavigationOptions';
+import { MainTabNavigationOptions } from '@navigation/options/MainTabNavigationOptions';
 
 const routeConfig = {
     Home: { screen: HomeScreen, navigationOptions: HeaderNavigationOptions },
-    Notice: {
-        screen: NoticeScreen, navigationOptions: {
-            title: "test"
-        }
-    },
+    Notice: { screen: NoticeScreen, },
     Coupon: { screen: CouponScreen, },
     Recharge: { screen: RechargeScreen },    
     AdditionService: { screen: AdditionServiceScreen },

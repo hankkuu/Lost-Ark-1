@@ -5,6 +5,7 @@ import {
 import { createStackNavigator } from 'react-navigation';
 import { commonNavigationOptions } from "@navigation/options/CommonNavigationOptions";
 import { MainTabNavigationOptions } from '@navigation/options/MainTabNavigationOptions';
+import { CommonOptions } from '@navigation/options/CommonHeaderNavigationOptions'
 import MainTabNavigator from '@navigation/MainTabNavigator';
 import AlarmScreen from "@screen/mainTab/AlarmScreen";
 import MyScreen from "@screen/mainTab/MyScreen";
@@ -30,58 +31,11 @@ import WebViewScreen from '@screen/home/WebViewScreen';
 import WebViewSwitchNavigator from '@navigation/WebViewSwitchNavigator'
 
 const routeConfig = {
-    MainTab: {
-        screen: MainTabNavigator,  
-            // navigationOptions: ({navigation}) => ({
-            //     title: "rrrr",
-            //     headerStyle: {
-            //         backgroundColor: 'red',
-            //         borderBottomColor: 'red',
-            //         borderBottomWidth: 1,
-            //         elevation: 0,
-            //         //
-            //       },
-            //       headerTitleStyle: {
-            //         flex: 1,
-            //         color: 'white',
-            //         textAlign: 'center',   //
-            //         alignSelf: 'center'
-            //       },
-            //       // headerTitleStyle: {
-            //       //   textAlign: 'center'   //
-            //       // },
-            //       headerTintColor: 'red',
-            //       headerLeft: 
-            //         <TouchableOpacity
-            //             activeOpacity={0.5}
-            //             onPress={() => navigation.goBack()}
-            //         >
-            //             <Text>back</Text>{/* <Text>ddddfdf<Text style={styles.txtSub}>0</Text></Text> */}
-            //         </TouchableOpacity>,
-            //       headerRight:
-            //             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            //             {/* <TouchableOpacity
-            //                 activeOpacity={0.5}
-            //                 onPress={() => navigation.navigate('New2')}
-            //                 style={{marginRight: 10}}
-            //             >
-            //                 <Text>검색</Text>
-            //             </TouchableOpacity> */}
-            //             <TouchableOpacity
-            //                 activeOpacity={0.5}
-            //                 onPress={() => navigation.navigate('Coupon')}
-            //             >
-            //                 <Text>dff</Text>{/* <Text>ddddfdf<Text style={styles.txtSub}>0</Text></Text> */}
-            //             </TouchableOpacity>
-            //             </View>,
-                
-            // }),
-    },//, navigationOptions: MainTabNavigationOptions },
-
-
+    MainTab: { screen: MainTabNavigator,  },
 
     Alarm: { screen: AlarmScreen, navigationOptions: { title: 'Alarm' }},
     My: { screen: MyScreen },
+
     Notice: { screen: NoticeScreen, navigationOptions: { title: "Notice" }},
     DetailNotice: { screen: DetailNoticeScreen },
     Coupon: { screen: CouponScreen, navigationOptions: { title: 'Coupon' }},
@@ -101,11 +55,72 @@ const routeConfig = {
 const navigatorConfig = {
     initialRouteName: 'MainTab',
     gesturesEnabled: true,
-    navigationOptions: {
-        //...commonNavigationOptions,
-        header: null,
+    navigationOptions: ({navigation}) => {
+        const { index } = navigation.state;        
+        switch(index) {
+            case 0: 
+            {
+                return ({                    
+                    title: navigation.state.routes[index].routeName,
+                    header: null
+                });
+            }
+            case 1:
+            {
+                return ({
+                    ...CommonOptions,
+                    title: navigation.state.routes[index].routeName,
+                    headerLeft:
+                        <TouchableOpacity
+                            activeOpacity={0.5}
+                            onPress={() => { navigation.navigate('My') }}
+                        >
+                            <Text style={{color: 'white', fontSize: 15,}}>관심상품</Text>
+                        </TouchableOpacity>,
+                    headerRight:
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <TouchableOpacity
+                                activeOpacity={0.5}
+                                onPress={() => navigation.navigate('Alarm')}
+                            >
+                                <Text style={{color: 'white', fontSize: 15,}}>구매히스토리</Text>
+                            </TouchableOpacity>
+                        </View>,
+                });
+            }
+            case 2:
+            {
+                return ({
+                    ...CommonOptions,
+                    title: navigation.state.routes[index].routeName,
+                    headerLeft:
+                        <TouchableOpacity
+                            activeOpacity={0.5}
+                            onPress={() => { navigation.navigate('My') }}
+                        >
+                            <Text style={{color: 'white', fontSize: 15,}}>캐시/환불</Text>
+                        </TouchableOpacity>,
+                    headerRight:
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <TouchableOpacity
+                                activeOpacity={0.5}
+                                onPress={() => navigation.navigate('Alarm')}
+                            >
+                                <Text style={{color: 'white', fontSize: 15,}}>구매히스토리</Text>
+                            </TouchableOpacity>
+                        </View>,
+                });
+            }
+            case 3:
+            {
+                return ({
+                    title: navigation.state.routes[index].routeName,
+                    header: null
+                });
+            }
+        }            
     },
-    //navigationOptions: commonNavigationOptions,
+
     
     // https://reactnavigation.org/docs/en/stack-navigator.html#modal-stacknavigator-with-custom-screen-transitions
     transitionConfig: () => ({
