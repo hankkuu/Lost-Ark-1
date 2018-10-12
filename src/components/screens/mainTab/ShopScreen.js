@@ -10,124 +10,128 @@ import {
     Animated,
     TextInput,
     FlatList,
-    Platform
+    Platform,
+    TouchableHighlight,
+    Picker
 } from "react-native";
 import { colors } from '@util/Styles'
 
 import Swiper from "react-native-swiper";
-import ScrollableTabView, { ScrollableTabBar } from "react-native-scrollable-tab-view";
+import { ScrollableTabView, ScrollableTabBar, } from "@valdio/react-native-scrollable-tabview";
 import GoodsItem from "@item/GoodsItem";
 
-class ShopScreen extends Component {
+
+class List extends Component {
     constructor(props) {
-        super(props);
-        this.state= {
+        super(props)
+        this.state = {
+            items: [],
+            subCategoryName: '',
+            subCategories: [],
+            refreshing: false,
             searchTxt: '',
             scrollY: new Animated.Value(0),
-            items: [],
-            refreshing: false
         }
     }
 
-    componentDidMount() {        
+    componentDidMount() {
         const dummy = [
-            { uid: 0, tag: 'New', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원'  },
-            { uid: 1, tag: '인기', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원'  },
-            { uid: 2, tag: '추천', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원'  },
-            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원'  },
+            { uid: 0, tag: 'New', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 1, tag: '인기', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 2, tag: '추천', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
         ]
-        this.setState({ items: dummy })
+        const category = [
+            { label: '전체' },
+            { label: '첫번째' },
+            { label: '두번째' },
+            { label: '세번째' },
+        ]
+        this.setState({ items: dummy, subCategories: category })
+    }
+
+    test = (itemValue) => {
+        const dummy = [
+            { uid: 0, tag: 'New', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 1, tag: '인기', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 2, tag: '추천', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+        ]
+
+        this.setState({
+            subCategory: itemValue,
+            items: dummy
+        })
     }
 
     render() {
         return (
-            <ScrollView>
-                <View style={styles.notice}>
-                    <Swiper style={styles.wrapper} showsButtons={true} autoplay={true}
-                        buttonWrapperStyle={{}} paginationStyle={{ bottom: 5 }}
-                        nextButton={<Text>&gt;</Text>} prevButton={<Text>&lt;</Text>}
+            <View style={styles.container}>
+                <View style={styles.selector}>
+                    <Picker
+                        selectedValue={this.state.subCategory}
+                        style={{ height: 50, width: "25%" }}
+                        onValueChange={(itemValue, itemIndex) => this.test(itemValue)}
                     >
-                        <View style={styles.slide}>
-                            <TouchableOpacity style={styles.link}
-                                onPress={() => this.props.navigation.navigate('Test1')}>
-                                <Image source={require("../../../../assets/shop_banner.png")} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.slide}>
-                            <TouchableOpacity style={styles.link}
-                                onPress={() => this.props.navigation.navigate('Test1')}>
-                                <Image source={require("../../../../assets/lostArk2.png")} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.slide}>
-                            <TouchableOpacity style={styles.link}
-                                onPress={() => this.props.navigation.navigate('Test1')}>
-                                <Image source={require("../../../../assets/lostArk3.png")} />
-                            </TouchableOpacity>
-                        </View>
-                    </Swiper>
-                </View>
-                <ScrollableTabView
-                    style={{ marginTop: 0 }}
-                    renderTabBar={() => <ScrollableTabBar />}
-                    initialPage={0}
-                >
-                    <Text tabLabel='패키지'></Text>
-                    <Text tabLabel='부가서비스'></Text>
-                    <Text tabLabel='프레스티지'></Text>
-                    <Text tabLabel='임시다'></Text>
-                    <Text tabLabel='임시다'></Text>
-                    <Text tabLabel='임시다'></Text>
-                </ScrollableTabView>
-                <Animated.View
-                    style={[styles.viewSearch, {
-                        height: 50,
-                        transform: [{
-                            translateY: this.state.scrollY.interpolate({
+                        {this.state.subCategories.map((data, index) => {
+                            const { label } = data;
+                            return (
+                                <Picker.Item key={index} label={label} value={label} />
+                            )
+                        })}
+                    </Picker>
+                    <Animated.View
+                        style={[styles.viewSearch, {
+                            height: 50,
+                            transform: [{
+                                translateY: this.state.scrollY.interpolate({
+                                    inputRange: [-50, 0, 50, 100],
+                                    outputRange: [0, 0, -50, -50]
+                                })
+                            }]
+                        }]}
+                    >
+                        <Animated.View style={{
+                            position: 'absolute', width: '100%', paddingHorizontal: 20, height: 50,
+                            opacity: this.state.scrollY.interpolate({
                                 inputRange: [-50, 0, 50, 100],
-                                outputRange: [0, 0, -50, -50]
+                                outputRange: [1, 1, 0, 0]
                             })
-                        }]
-                    }]}
-                >
-                    <Animated.View style={{
-                        position: 'absolute', width: '100%', paddingHorizontal: 20, height: 50,
-                        opacity: this.state.scrollY.interpolate({
-                            inputRange: [-50, 0, 50, 100],
-                            outputRange: [1, 1, 0, 0]
-                        })
-                    }}>
-                        <TextInput
-                            onChangeText={(text => this.onTxtChanged(text))}
-                            underlineColorAndroid='transparent'
-                            autoCapitalize='none'
-                            autoCorrect={false}
-                            multiline={false}
-                            style={styles.txtInput}
-                            onSubmitEditing={this.onSearch}
-                            defaultValue={this.state.searchTxt}
-                        />
-                        <Image source={require('../../../../assets/picSearch.png')}
-                            style={styles.imgSearch}
-                        />
+                        }}>
+                            <TextInput
+                                onChangeText={(text => this.onTxtChanged(text))}
+                                underlineColorAndroid='transparent'
+                                autoCapitalize='none'
+                                autoCorrect={false}
+                                multiline={false}
+                                style={styles.txtInput}
+                                onSubmitEditing={this.onSearch}
+                                defaultValue={this.state.searchTxt}
+                            />
+                            <Image source={require('../../../../assets/picSearch.png')}
+                                style={styles.imgSearch}
+                            />
+                        </Animated.View>
                     </Animated.View>
-                </Animated.View>
-                
-                <View style={styles.container}>
-                    <FlatList
-                        style={{ alignSelf: 'stretch' }}
-                        contentContainerStyle={this.state.items.length === 0 ? styles.noContents : null}
-                        keyExtractor={(item, index) => item.uid.toString()}
-                        data={this.state.items}
-                        renderItem={this.renderItem}
-                        refreshing={this.state.refreshing}
-                        onRefresh={this.onRefesh}
-                        extraData={this.state}
-                        ListEmptyComponent={<Text>{('NO_CONTENT')}</Text>}
-                    ></FlatList>
                 </View>
-            </ScrollView>
-        );
+                <FlatList
+                    style={{ alignSelf: 'stretch' }}
+                    contentContainerStyle={this.state.items.length === 0 ? styles.noContents : null}
+                    keyExtractor={(item, index) => item.uid.toString()}
+                    data={this.state.items}
+                    renderItem={this.renderItem}
+                    refreshing={this.state.refreshing}
+                    onRefresh={this.onRefesh}
+                    extraData={this.state}
+                    ListEmptyComponent={<Text>{('NO_CONTENT')}</Text>}
+                ></FlatList>
+            </View>
+        )
     }
 
     onRefesh = () => {
@@ -142,17 +146,117 @@ class ShopScreen extends Component {
             <GoodsItem
                 item={item}
                 onPress={() => this.onItemClick(item)}
-                onLongPress={Platform.select({ ios: null, android: () => this.showActionSheet(item) })}
             />
         return listItem;
     }
     onItemClick = (item) => {
         const { items } = this.state;
         //<DetailListScreen />
-        //this.props.navigation.navigate('Detail', { item: item, list: items });
+        //console.log(this.props.navigation);
+        this.props.navigation.navigate('GoodsDetail', { item: item });
     }
 }
+
+
+
+class ShopScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchTxt: '',
+            scrollY: new Animated.Value(0),
+            refreshing: false
+        }
+    }
+
+    componentDidMount() {
+
+    }
+
+    render() {
+        const collapsableComponent = (
+            <View style={styles.notice}>
+                <Swiper style={styles.wrapper} showsButtons={true} autoplay={true}
+                    buttonWrapperStyle={{}} paginationStyle={{ bottom: 5 }}
+                    nextButton={<Text>&gt;</Text>} prevButton={<Text>&lt;</Text>}
+                >
+                    <View style={styles.slide}>
+                        <TouchableOpacity style={styles.link}
+                            onPress={() => this.props.navigation.navigate('Test1')}>
+                            <Image source={require("../../../../assets/shop_banner.png")} />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.slide}>
+                        <TouchableOpacity style={styles.link}
+                            onPress={() => this.props.navigation.navigate('Test1')}>
+                            <Image source={require("../../../../assets/lostArk2.png")} />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.slide}>
+                        <TouchableOpacity style={styles.link}
+                            onPress={() => this.props.navigation.navigate('Test1')}>
+                            <Image source={require("../../../../assets/lostArk3.png")} />
+                        </TouchableOpacity>
+                    </View>
+                </Swiper>
+            </View>
+        )
+
+        return (
+
+            <ScrollableTabView
+                style={{ marginTop: 0 }}
+                renderTabBar={() => <ScrollableTabBar renderTab={this.renderTab} />}
+                initialPage={0}
+                locked={true}
+                showsHorizontalScrollIndicator={false}
+                collapsableBar={collapsableComponent} //이게 동작이 안된다.... // 해결 : ScrollableTabView이 가장 부모로 있으면 된다
+                //pullToRefresh={this._onRefresh}
+                //onChangeTab={this.handleChangeTab}
+            >
+                <List tabLabel='패키지' navigation={this.props.navigation} />
+                <List tabLabel='부가서비스' navigation={this.props.navigation} />
+                <List tabLabel='프레스티지' navigation={this.props.navigation} />
+                <List tabLabel='임시다' navigation={this.props.navigation} />
+                <List tabLabel='임시다' navigation={this.props.navigation} />
+                <List tabLabel='임시다' navigation={this.props.navigation} />
+            </ScrollableTabView>
+
+        );
+    }
+
+    handleChangeTab = ({ i, ref, from }) => {
+        console.log(i, ref, from);
+        // this.children[i].onEnter()
+        // this.children[from].onLeave()
+    }
+
+    renderTab = (name, page, isTabActive, onPressHandler, onLayoutHandler) => {
+        //console.log(name, page, isTabActive, onPressHandler, onLayoutHandler);
+        // 여기서 리스트를 갱신하자 
+        // if(isTabActive === true) {
+        //     console.log("activeTab: " + page);
+        //     this._updateItemList(page);
+        // }
+
+        return (
+            <TouchableHighlight
+                key={`${name}_${page}`}
+                onPress={() => onPressHandler(page)}
+                onLayout={onLayoutHandler}
+                style={{ flex: 1, width: 80, alignItems: 'center', justifyContent: 'center', backgroundColor:"#aaaaaa"  }}
+                underlayColor="#aaaaaa"  // 이색은 뭐냐??
+            >
+                <Text>{name}</Text>
+            </TouchableHighlight>
+        )
+    }
+
+}
 export default ShopScreen;
+
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -164,25 +268,27 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         height: 80,
-
+        //flex: 1,
         alignItems: 'center',
     },
     slide: {
-        flex: 1,
+        //flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        //width: "100%",
+        //height: 200
     },
     txtInput: {
-        width: '100%', 
-        height: 30, 
-        top: 10, 
+        width: '100%',
+        height: 30,
+        top: 10,
         backgroundColor: 'white',
-        borderRadius: 4, 
-        paddingLeft: 34, 
+        borderRadius: 4,
+        paddingLeft: 34,
         paddingRight: 10
     },
     viewSearch: {
-        width: '100%',
+        width: '75%',
         justifyContent: 'center',
         backgroundColor: colors.paleGray,
         overflow: 'hidden',
@@ -193,4 +299,8 @@ const styles = StyleSheet.create({
         height: 16,
         left: 30, top: 18,
     },
+    selector: {
+        flexDirection: 'row',
+
+    }
 });

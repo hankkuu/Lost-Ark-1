@@ -7,49 +7,24 @@ import { commonNavigationOptions } from "@navigation/options/CommonNavigationOpt
 import { MainTabNavigationOptions } from '@navigation/options/MainTabNavigationOptions';
 import { CommonOptions } from '@navigation/options/CommonHeaderNavigationOptions'
 import MainTabNavigator from '@navigation/MainTabNavigator';
-import AlarmScreen from "@screen/mainTab/AlarmScreen";
-import MyScreen from "@screen/mainTab/MyScreen";
+
 
 
 import React from 'react';
 import { Platform, StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 
-import CouponScreen from "../screens/home/CouponScreen";
-import NoticeScreen from '@screen/home/NoticeScreen';
-import DetailNoticeScreen from '@screen/home/DetailNoticeScreen';
-import RechargeScreen from '@screen/home/RechargeScreen';
-import AdditionServiceScreen from '@screen/home/AdditionServiceScreen';
-import HomeStackNavigator from '@navigation/HomeStackNavigator';
+import CashScreen from "../screens/shop/CashScreen";
+import PurchaseHistoryScreen from '@screen/shop/PurchaseHistoryScreen';
+import GoodsDetailScreen from "../screens/shop/GoodsDetailScreen";
 
-import MyShopScreen from '@screen/home/MyShopScreen';
-import PcRoomScreen from '@screen/home/PcRoomScreen';
-import CSScreen from "../screens/home/CSScreen";
-
-import BestListScreen from '@screen/home/BestListScreen';
-import DetailListScreen from '@screen/home/DetailListScreen';
-import WebViewScreen from '@screen/home/WebViewScreen';
-import WebViewSwitchNavigator from '@navigation/WebViewSwitchNavigator'
 
 const routeConfig = {
     MainTab: { screen: MainTabNavigator,  },
 
-    Alarm: { screen: AlarmScreen, navigationOptions: { title: 'Alarm' }},
-    My: { screen: MyScreen },
+    Cash: { screen: CashScreen },
+    PurchaseHistory: { screen: PurchaseHistoryScreen },
+    GoodsDetail: { screen: GoodsDetailScreen }
 
-    Notice: { screen: NoticeScreen, navigationOptions: { title: "Notice" }},
-    DetailNotice: { screen: DetailNoticeScreen },
-    Coupon: { screen: CouponScreen, navigationOptions: { title: 'Coupon' }},
-    Recharge: { screen: RechargeScreen },    
-    AdditionService: { screen: HomeStackNavigator },
-    MyShop: { screen: MyShopScreen },
-    PCRoom: { screen: PcRoomScreen },
-    CS: { screen: CSScreen },
-
-    List: { screen: BestListScreen },
-    Detail: { screen: DetailListScreen },
-    WebView: { screen: WebViewScreen },
-
-    test: { screen: WebViewSwitchNavigator },
 
 }
 const navigatorConfig = {
@@ -96,7 +71,7 @@ const navigatorConfig = {
                     headerLeft:
                         <TouchableOpacity
                             activeOpacity={0.5}
-                            onPress={() => { navigation.navigate('My') }}
+                            onPress={() => { navigation.navigate('Cash') }}
                         >
                             <Text style={{color: 'white', fontSize: 15,}}>캐시/환불</Text>
                         </TouchableOpacity>,
@@ -104,7 +79,7 @@ const navigatorConfig = {
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <TouchableOpacity
                                 activeOpacity={0.5}
-                                onPress={() => navigation.navigate('Alarm')}
+                                onPress={() => navigation.navigate('PurchaseHistory')}
                             >
                                 <Text style={{color: 'white', fontSize: 15,}}>구매히스토리</Text>
                             </TouchableOpacity>

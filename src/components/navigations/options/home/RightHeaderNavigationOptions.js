@@ -42,7 +42,7 @@ export const RightHeaderNavigationOptions = ({ navigation }) => ({
                 activeOpacity={0.5}
                 onPress={() => {console.log(navigation.state.routeName)}}
             >
-                <Text style={styles.txt}>My</Text>
+                <Text style={styles.txt}>??</Text>
             </TouchableOpacity>
         ,
 })

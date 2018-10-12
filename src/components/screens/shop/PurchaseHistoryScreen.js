@@ -5,16 +5,16 @@ import {
     StyleSheet
 } from "react-native";
 
-class AuctionScreen extends Component {
+class PurchaseHistoryScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>AuctionScreen</Text>
+                <Text>PurchaseHistoryScreen</Text>
             </View>
         );
     }
 }
-export default AuctionScreen;
+export default PurchaseHistoryScreen;
 
 const styles = StyleSheet.create({
     container: {

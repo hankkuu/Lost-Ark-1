@@ -3,11 +3,17 @@ import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackV
 
 import HomeScreen from '@screen/home/HomeScreen';
 import NoticeScreen from '@screen/home/NoticeScreen';
+import DetailNoticeScreen from '@screen/home/DetailNoticeScreen';
+
 import CouponScreen from '@screen/home/CouponScreen';
 import RechargeScreen from '@screen/home/RechargeScreen';
 import AdditionServiceScreen from '@screen/home/AdditionServiceScreen';
+import MyShopScreen from '@screen/home/MyShopScreen';
+import PcRoomScreen from '@screen/home/PcRoomScreen';
+import CSScreen from "../screens/home/CSScreen";
 
-
+import AlarmScreen from "@screen/mainTab/AlarmScreen";
+import MyScreen from "@screen/mainTab/MyScreen";
 
 import BestListScreen from '@screen/home/BestListScreen';
 import DetailListScreen from '@screen/home/DetailListScreen';
@@ -27,9 +33,15 @@ import { MainTabNavigationOptions } from '@navigation/options/MainTabNavigationO
 const routeConfig = {
     Home: { screen: HomeScreen, navigationOptions: HeaderNavigationOptions },
     Notice: { screen: NoticeScreen, },
+    DetailNotice: { screen: DetailNoticeScreen },
+
     Coupon: { screen: CouponScreen, },
     Recharge: { screen: RechargeScreen },    
     AdditionService: { screen: AdditionServiceScreen },
+
+    MyShop: { screen: MyShopScreen },
+    PCRoom: { screen: PcRoomScreen },
+    CS: { screen: CSScreen },
 
     Detail: { screen: DetailListScreen },
 
@@ -38,7 +50,11 @@ const routeConfig = {
 
     test: { screen: WebViewSwitchNavigator },
 
+    Alarm: { screen: AlarmScreen, },
+    My: { screen: MyScreen },
+
 }
+
 const navigatorConfig = {
     initialRouteName: 'Home',
     gesturesEnabled: true,
