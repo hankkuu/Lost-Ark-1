@@ -17,7 +17,7 @@ const TabNavigator = createBottomTabNavigator({
     Home: { screen: HomeStackNavigator, }, 
     Auction: { screen: AuctionScreen, },
     Shop: { screen: ShopScreen },
-    SettingStack: { screen: SettingStackNavigator, navigationOptions: { header: null } },
+    SettingStack: { screen: SettingStackNavigator },
 }, {
         navigationOptions: ({ navigation }) => ({
             //...MainTabNavigationOptions,

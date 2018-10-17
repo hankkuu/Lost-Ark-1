@@ -12,10 +12,16 @@ import {
 import Swiper from "react-native-swiper";
 import { ScrollableTabBar, ScrollableTabView, DefaultTabBar } from "@valdio/react-native-scrollable-tabview";
 import { screenWidth } from '@util/Styles' 
+import SlideItem from "@item/SlideItem";
 
 class AuctionScreen extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            test: [ {categoryId: 1, categoryName: '패키지'}, 
+                    {categoryId: 2, categoryName: '부가서비스'}, 
+                    {categoryId: 3, categoryName: '프레스티지'} ]
+        }
     }
     render() {
         const collapsableComponent = (
@@ -33,13 +39,13 @@ class AuctionScreen extends Component {
                     <View style={styles.slide}>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }} source={require("../../../../assets/lostArk2.png")} />
+                            <Image style={{ height: "100%", width: "100%", }} source={require("../../../../assets/shop_banner2.png")} />
                         </TouchableOpacity>
                     </View>
                     <View style={styles.slide}>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }} source={require("../../../../assets/lostArk3.png")} />
+                            <Image style={{ height: "100%", width: "100%", }} source={require("../../../../assets/shop_banner3.png")} />
                         </TouchableOpacity>
                     </View>
                 </Swiper>
@@ -55,9 +61,13 @@ class AuctionScreen extends Component {
                         showsHorizontalScrollIndicator={false}
                         collapsableBar={collapsableComponent}
                     >
-                        <ScrollList tabLabel='패키지'></ScrollList>
-                        <ScrollList tabLabel='부가서비스'></ScrollList>
-                        <ScrollList tabLabel='프레스티지'></ScrollList>
+                        {this.state.test.map((data,index)=> {                            
+                            const { categoryName } = data;
+                            return (
+                                <ScrollList key={index} tabLabel={categoryName} navigation={this.props.navigation}></ScrollList>
+                            )
+                        })}
+
                     </ScrollableTabView>   
             </View>
         );        
@@ -81,14 +91,90 @@ export default AuctionScreen;
 export class ScrollList extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            items: [],
+            items2: [],
+            items3: [],
+            items4: [],
+            items5: [],
+        }
+        
+    }
+
+    componentDidMount() {
+        const dummy = [
+            { uid: 0, tag: 'New', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 1, tag: '인기', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 2, tag: '추천', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 4, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 5, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 6, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 7, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 8, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 9, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+        ]
+        const dummy2 = [
+            { uid: 0, tag: 'New', img: require('../../../../assets/shop_goods2.png'), displayName: '크리스탈', cost: '45000원' },
+            { uid: 1, tag: '인기', img: require('../../../../assets/shop_goods2.png'), displayName: '크리스탈', cost: '45000원' },
+            { uid: 2, tag: '추천', img: require('../../../../assets/shop_goods2.png'), displayName: '크리스탈', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods2.png'), displayName: '크리스탈', cost: '45000원' },
+            { uid: 4, tag: '한정', img: require('../../../../assets/shop_goods2.png'), displayName: '크리스탈', cost: '45000원' },
+            { uid: 5, tag: '한정', img: require('../../../../assets/shop_goods2.png'), displayName: '크리스탈', cost: '45000원' },
+            { uid: 6, tag: '한정', img: require('../../../../assets/shop_goods2.png'), displayName: '크리스탈', cost: '45000원' },
+            { uid: 7, tag: '한정', img: require('../../../../assets/shop_goods2.png'), displayName: '크리스탈', cost: '45000원' },
+            { uid: 8, tag: '한정', img: require('../../../../assets/shop_goods2.png'), displayName: '크리스탈', cost: '45000원' },
+            { uid: 9, tag: '한정', img: require('../../../../assets/shop_goods2.png'), displayName: '크리스탈', cost: '45000원' },
+        ]
+        const dummy3 = [
+            { uid: 0, tag: 'New', img: require('../../../../assets/shop_goods3.png'), displayName: '로얄 크리스탈', cost: '45000원' },
+            { uid: 1, tag: '인기', img: require('../../../../assets/shop_goods3.png'), displayName: '로얄 크리스탈', cost: '45000원' },
+            { uid: 2, tag: '추천', img: require('../../../../assets/shop_goods3.png'), displayName: '로얄 크리스탈', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods3.png'), displayName: '로얄 크리스탈', cost: '45000원' },
+            { uid: 4, tag: '한정', img: require('../../../../assets/shop_goods3.png'), displayName: '로얄 크리스탈', cost: '45000원' },
+            { uid: 5, tag: '한정', img: require('../../../../assets/shop_goods3.png'), displayName: '로얄 크리스탈', cost: '45000원' },
+            { uid: 6, tag: '한정', img: require('../../../../assets/shop_goods3.png'), displayName: '로얄 크리스탈', cost: '45000원' },
+            { uid: 7, tag: '한정', img: require('../../../../assets/shop_goods3.png'), displayName: '로얄 크리스탈', cost: '45000원' },
+            { uid: 8, tag: '한정', img: require('../../../../assets/shop_goods3.png'), displayName: '로얄 크리스탈', cost: '45000원' },
+            { uid: 9, tag: '한정', img: require('../../../../assets/shop_goods3.png'), displayName: '로얄 크리스탈', cost: '45000원' },
+        ]
+        const dummy4 = [
+            { uid: 0, tag: 'New', img: require('../../../../assets/shop_goods4.png'), displayName: '필살기', cost: '45000원' },
+            { uid: 1, tag: '인기', img: require('../../../../assets/shop_goods4.png'), displayName: '필살기', cost: '45000원' },
+            { uid: 2, tag: '추천', img: require('../../../../assets/shop_goods4.png'), displayName: '필살기', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods4.png'), displayName: '필살기', cost: '45000원' },
+            { uid: 4, tag: '한정', img: require('../../../../assets/shop_goods4.png'), displayName: '필살기', cost: '45000원' },
+            { uid: 5, tag: '한정', img: require('../../../../assets/shop_goods4.png'), displayName: '필살기', cost: '45000원' },
+            { uid: 6, tag: '한정', img: require('../../../../assets/shop_goods4.png'), displayName: '필살기', cost: '45000원' },
+            { uid: 7, tag: '한정', img: require('../../../../assets/shop_goods4.png'), displayName: '필살기', cost: '45000원' },
+            { uid: 8, tag: '한정', img: require('../../../../assets/shop_goods4.png'), displayName: '필살기', cost: '45000원' },
+            { uid: 9, tag: '한정', img: require('../../../../assets/shop_goods4.png'), displayName: '필살기', cost: '45000원' },
+        ]
+        const dummy5 = [
+            { uid: 0, tag: 'New', img: require('../../../../assets/shop_goods5.png'), displayName: '카드 3일', cost: '45000원' },
+            { uid: 1, tag: '인기', img: require('../../../../assets/shop_goods5.png'), displayName: '카드 3일', cost: '45000원' },
+            { uid: 2, tag: '추천', img: require('../../../../assets/shop_goods5.png'), displayName: '카드 3일', cost: '45000원' },
+            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods5.png'), displayName: '카드 3일', cost: '45000원' },
+            { uid: 4, tag: '한정', img: require('../../../../assets/shop_goods5.png'), displayName: '카드 3일', cost: '45000원' },
+            { uid: 5, tag: '한정', img: require('../../../../assets/shop_goods5.png'), displayName: '카드 3일', cost: '45000원' },
+            { uid: 6, tag: '한정', img: require('../../../../assets/shop_goods5.png'), displayName: '카드 3일', cost: '45000원' },
+            { uid: 7, tag: '한정', img: require('../../../../assets/shop_goods5.png'), displayName: '카드 3일', cost: '45000원' },
+            { uid: 8, tag: '한정', img: require('../../../../assets/shop_goods5.png'), displayName: '카드 3일', cost: '45000원' },
+            { uid: 9, tag: '한정', img: require('../../../../assets/shop_goods5.png'), displayName: '카드 3일', cost: '45000원' },
+        ]
+        this.setState({items: dummy, items2: dummy2, items3: dummy3, items4: dummy4, items5: dummy5})
     }
     render() {
         return (
         <ScrollView Style={{ flex: 1 }}>
             <View style={{flexDirection: 'column'}}>
-                <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between"}}>
-                    <Text>항목</Text>
-                    <Text>더보기</Text>
+                <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between", borderStyle: 'solid', borderBottomColor: 'red'}}>  
+                    <Text style={{color: 'red'}}>패키지</Text>
+                    <TouchableOpacity 
+                        onPress={() => this.props.navigation.navigate("Shop")} 
+                    >
+                        <Text>더보기</Text>
+                    </TouchableOpacity>
                 </View>
                 <ScrollView
                     horizontal={true}
@@ -102,27 +188,143 @@ export class ScrollList extends Component {
                         right: 30,
                       }}
                 >
-                    {/* <TouchableOpacity>
-                        <Text>이미지</Text>
+                        {this.state.items.map((data, index) => {
+                            const { img, displayName } = data;
+                            if (index < 5) {
+                                return (
+                                    <SlideItem key={index} img={img} name={displayName}></SlideItem>
+                                )
+                            }
+                        })}
+
+                </ScrollView>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+                <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between", borderStyle: 'solid', borderBottomColor: 'red'}}>  
+                    <Text style={{color: 'red'}}>부가서비스</Text>
+                    <TouchableOpacity 
+                        onPress={() => this.props.navigation.navigate("Shop")} 
+                    >
+                        <Text>더보기</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text>이미지</Text>
+                </View>
+                <ScrollView
+                    horizontal={true}
+                    snapToInterval={screenWidth - 60}
+                    snapToAlignment={'end'}
+                    decelerationRate={0}
+                    contentInset={{
+                        top: 0,
+                        left: 30,
+                        bottom: 0,
+                        right: 30,
+                      }}
+                >
+                        {this.state.items2.map((data, index) => {
+                            const { img, displayName } = data;
+                            if (index < 5) {
+                                return (
+                                    <SlideItem key={index} img={img} name={displayName}></SlideItem>
+                                )
+                            }
+                        })}
+
+                </ScrollView>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+                <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between", borderStyle: 'solid', borderBottomColor: 'red'}}>  
+                    <Text style={{color: 'red'}}>프레스티지</Text>
+                    <TouchableOpacity 
+                        onPress={() => this.props.navigation.navigate("Shop")} 
+                    >
+                        <Text>더보기</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text>이미지</Text>
+                </View>
+                <ScrollView
+                    horizontal={true}
+                    snapToInterval={screenWidth - 60}
+                    snapToAlignment={'end'}
+                    decelerationRate={0}
+                    contentInset={{
+                        top: 0,
+                        left: 30,
+                        bottom: 0,
+                        right: 30,
+                      }}
+                >
+                        {this.state.items3.map((data, index) => {
+                            const { img, displayName } = data;
+                            if (index < 5) {
+                                return (
+                                    <SlideItem key={index} img={img} name={displayName}></SlideItem>
+                                )
+                            }
+                        })}
+
+                </ScrollView>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+                <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between", borderStyle: 'solid', borderBottomColor: 'red'}}>  
+                    <Text style={{color: 'red'}}>임시다</Text>
+                    <TouchableOpacity 
+                        onPress={() => this.props.navigation.navigate("Shop")} 
+                    >
+                        <Text>더보기</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text>이미지</Text>
+                </View>
+                <ScrollView
+                    horizontal={true}
+                    snapToInterval={screenWidth - 60}
+                    snapToAlignment={'end'}
+                    decelerationRate={0}
+                    contentInset={{
+                        top: 0,
+                        left: 30,
+                        bottom: 0,
+                        right: 30,
+                      }}
+                >
+                        {this.state.items4.map((data, index) => {
+                            const { img, displayName } = data;
+                            if (index < 5) {
+                                return (
+                                    <SlideItem key={index} img={img} name={displayName}></SlideItem>
+                                )
+                            }
+                        })}
+
+                </ScrollView>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+                <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between", borderStyle: 'solid', borderBottomColor: 'red'}}>  
+                    <Text style={{color: 'red'}}>너도 임시</Text>
+                    <TouchableOpacity 
+                        onPress={() => this.props.navigation.navigate("Shop")} 
+                    >
+                        <Text>더보기</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text>이미지</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text>이미지</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text>이미지</Text>
-                    </TouchableOpacity> */}
+                </View>
+                <ScrollView
+                    horizontal={true}
+                    snapToInterval={screenWidth - 60}
+                    snapToAlignment={'end'}
+                    decelerationRate={0}
+                    contentInset={{
+                        top: 0,
+                        left: 30,
+                        bottom: 0,
+                        right: 30,
+                      }}
+                >
+                        {this.state.items5.map((data, index) => {
+                            const { img, displayName } = data;
+                            if (index < 5) {
+                                return (
+                                    <SlideItem key={index} img={img} name={displayName}></SlideItem>
+                                )
+                            }
+                        })}
+
                 </ScrollView>
             </View>
         </ScrollView>

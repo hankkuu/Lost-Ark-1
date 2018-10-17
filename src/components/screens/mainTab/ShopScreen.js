@@ -40,12 +40,12 @@ class List extends Component {
             { uid: 1, tag: '인기', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
             { uid: 2, tag: '추천', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
             { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
-            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
-            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
-            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
-            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
-            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
-            { uid: 3, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 4, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 5, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 6, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 7, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 8, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
+            { uid: 9, tag: '한정', img: require('../../../../assets/shop_goods.png'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
         ]
         const category = [
             { label: '전체' },
@@ -183,19 +183,19 @@ class ShopScreen extends Component {
                     <View style={styles.slide}>
                         <TouchableOpacity style={styles.link}
                             onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image source={require("../../../../assets/shop_banner.png")} />
+                            <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner.png")} />
                         </TouchableOpacity>
                     </View>
                     <View style={styles.slide}>
                         <TouchableOpacity style={styles.link}
                             onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image source={require("../../../../assets/lostArk2.png")} />
+                            <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner2.png")} />
                         </TouchableOpacity>
                     </View>
                     <View style={styles.slide}>
                         <TouchableOpacity style={styles.link}
                             onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image source={require("../../../../assets/lostArk3.png")} />
+                            <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner3.png")} />
                         </TouchableOpacity>
                     </View>
                 </Swiper>
@@ -273,8 +273,8 @@ const styles = StyleSheet.create({
     },
     slide: {
         //flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
         //width: "100%",
         //height: 200
     },

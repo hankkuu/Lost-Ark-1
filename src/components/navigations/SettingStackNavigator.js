@@ -3,6 +3,7 @@ import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackV
 import React from 'react';
 import { View } from 'react-native'
 import NavigationService from '@navigation/options/NavigationService';
+import { HeaderNavigationOptions } from '@navigation/options/setting/HeaderNavigationOptions';
 
 import Setting4 from '@screen/settings/Setting4';
 import Setting5 from '@screen/settings/Setting5';
@@ -12,7 +13,7 @@ import NoticeScreen from '@screen/settings/NoticeScreen';
 import SystemAlarmScreen from '@screen/settings/SystemAlarmScreen';
 
 const routeConfig = {
-    main: { screen: SettingsScreen },
+    Main: { screen: SettingsScreen, navigationOptions: HeaderNavigationOptions },
     Notice: { screen: NoticeScreen },
     SystemAlarm: { screen: SystemAlarmScreen },
     Setting4: { screen: Setting4 },
@@ -21,7 +22,7 @@ const routeConfig = {
 }
 
 const navigatorConfig = {
-    initialRouteName: 'main',
+    initialRouteName: 'Main',
     gesturesEnabled: true,
     navigationOptions: {
         //header: null,

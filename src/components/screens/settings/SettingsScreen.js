@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { 
+import {
     View,
     Text,
     StyleSheet,
-    ScrollView
+    ScrollView,
+    TouchableOpacity,
+    Switch
 } from "react-native";
 
 import { colors } from '@util/Styles'
@@ -14,39 +16,121 @@ class SettingsScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: 'Setting'
-        }        
+            value1: true,
+        }
     }
+
+    onValChange = (setValue) => {
+        this.setState({
+            value1: setValue
+        })
+    }
+
     render() {
-        const { name } = this.state;
+       
         return (
             <ScrollView style={styles.mainScroll}
-                            contentContainerStyle={styles.container}
+                contentContainerStyle={styles.container}
             >
-                <Button
-                    style={styles.btn}
-                    onPress={() => NavigationService.navigate('Notice')}
-                >공지</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => NavigationService.navigate('SystemAlarm')}
-                >알람설정</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => NavigationService.navigate('Setting3')}
-                >보안</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => NavigationService.navigate('Setting4')}
-                >도움말</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => NavigationService.navigate('Setting5')}
-                >고객센터</Button>
-                <Button
-                    style={styles.btn}
-                    onPress={() => NavigationService.navigate('Setting6')}
-                >버전정보</Button>
+                <View style={{ flexDirection: 'column' }}>
+                    <Text>Section1</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                        <Text>IMG</Text>
+                        <Text>Alarm1</Text>
+                        <Switch
+                            onValueChange={this.onValChange}
+                            value={this.state.value1}
+                        />
+                    </View>
+                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                        <Text>IMG</Text>
+                        <Text>Alarm2</Text>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("")}
+                        >
+                            <Text>>></Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <View style={{ flexDirection: 'column' }}>
+                    <Text>Section2</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                        <Text>IMG</Text>
+                        <Text>Alarm3</Text>
+                        <Switch
+                            onValueChange={this.onValChange}
+                            value={this.state.value1}
+                        />
+                    </View>
+                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                        <Text>IMG</Text>
+                        <Text>Alarm4</Text>
+                        <Switch
+                            onValueChange={this.onValChange}
+                            value={this.state.value1}
+                        />
+                    </View>
+                </View>
+                <View style={{ flexDirection: 'column' }}>
+                    <Text>Section3</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                        <Text>IMG</Text>
+                        <Text>Alarm5</Text>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("")}
+                        >
+                            <Text>>></Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                        <Text>IMG</Text>
+                        <Text>Alarm6</Text>
+                        <Switch
+                            onValueChange={this.onValChange}
+                            value={this.state.value1}
+                        />
+                    </View>
+                </View>
+                <View style={{ flexDirection: 'column' }}>
+                    <Text>Section4</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                        <Text>IMG</Text>
+                        <Text>Alarm7</Text>
+                        <Switch
+                            onValueChange={this.onValChange}
+                            value={this.state.value1}
+                        />
+                    </View>
+                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                        <Text>IMG</Text>
+                        <Text>Alarm8</Text>
+                        <Switch
+                            onValueChange={this.onValChange}
+                            value={this.state.value1}
+                        />
+                    </View>
+                </View>
+                <View style={{ flexDirection: 'column' }}>
+                    <Text>Section5</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                        <Text>IMG</Text>
+                        <Text>Alarm9</Text>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("")}
+                        >
+                            <Text>>></Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                        <Text>IMG</Text>
+                        <Text>Alarm10</Text>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("")}
+                        >
+                            <Text>>></Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
             </ScrollView>
         );
     }
@@ -56,8 +140,8 @@ export default SettingsScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+        //alignItems: 'center',
+        //justifyContent: 'center'
     },
     mainScroll: {
         //backgroundColor: colors.background,
