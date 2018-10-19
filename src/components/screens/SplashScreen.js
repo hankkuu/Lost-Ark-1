@@ -9,6 +9,7 @@ import {
 import { AppLoading } from 'expo';
 
 import { statusBarHeight } from '@util/Styles'
+import { getAssetByFilename } from '@util/Images'
 
 class SplashScreen extends Component {
     constructor(props) {
@@ -77,7 +78,7 @@ class SplashScreen extends Component {
             <View style={styles.container}>
                 <View style={styles.splash} >
                     <Image style={styles.imgSplash}
-                        source={require('../../../assets/lostArk6.png')}
+                        source={getAssetByFilename('splash')}
                     />
                 </View>
                 <View style={{ flex: 1 }}>

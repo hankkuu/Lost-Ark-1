@@ -199,7 +199,7 @@ export class ScrollList extends Component {
 
                 </ScrollView>
             </View>
-            <View style={{flexDirection: 'column'}}>
+            <View style={{flexDirection: 'column', marginTop: 20}}>
                 <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between", borderStyle: 'solid', borderBottomColor: 'red'}}>  
                     <Text style={{color: 'red'}}>부가서비스</Text>
                     <TouchableOpacity 
@@ -231,7 +231,7 @@ export class ScrollList extends Component {
 
                 </ScrollView>
             </View>
-            <View style={{flexDirection: 'column'}}>
+            <View style={{flexDirection: 'column', marginTop: 20}}>
                 <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between", borderStyle: 'solid', borderBottomColor: 'red'}}>  
                     <Text style={{color: 'red'}}>프레스티지</Text>
                     <TouchableOpacity 
@@ -263,7 +263,7 @@ export class ScrollList extends Component {
 
                 </ScrollView>
             </View>
-            <View style={{flexDirection: 'column'}}>
+            <View style={{flexDirection: 'column', marginTop: 20}}>
                 <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between", borderStyle: 'solid', borderBottomColor: 'red'}}>  
                     <Text style={{color: 'red'}}>임시다</Text>
                     <TouchableOpacity 
@@ -295,7 +295,7 @@ export class ScrollList extends Component {
 
                 </ScrollView>
             </View>
-            <View style={{flexDirection: 'column'}}>
+            <View style={{flexDirection: 'column', marginTop: 20}}>
                 <View style={{flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between", borderStyle: 'solid', borderBottomColor: 'red'}}>  
                     <Text style={{color: 'red'}}>너도 임시</Text>
                     <TouchableOpacity 

@@ -12,7 +12,7 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 
-import { ratio } from '@util/Styles';
+import { ratio } from '@util/Constants';
 
 const styles = StyleSheet.create({
   btn: {

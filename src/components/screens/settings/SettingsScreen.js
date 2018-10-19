@@ -5,7 +5,8 @@ import {
     StyleSheet,
     ScrollView,
     TouchableOpacity,
-    Switch
+    Switch,
+    Image
 } from "react-native";
 
 import { colors } from '@util/Styles'
@@ -27,106 +28,109 @@ class SettingsScreen extends Component {
     }
 
     render() {
-       
+
         return (
             <ScrollView style={styles.mainScroll}
                 contentContainerStyle={styles.container}
             >
-                <View style={{ flexDirection: 'column' }}>
+                <View style={{ flexDirection: 'column', }}>
                     <Text>Section1</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
-                        <Text>IMG</Text>
-                        <Text>Alarm1</Text>
+                        <Image source={require("../../../../assets/setting1.png")} />
+                        <Text style={{ left: -100}}>Alarm1</Text>
                         <Switch
                             onValueChange={this.onValChange}
                             value={this.state.value1}
                         />
                     </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
-                        <Text>IMG</Text>
-                        <Text>Alarm2</Text>
-                        <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("")}
-                        >
-                            <Text>>></Text>
-                        </TouchableOpacity>
-                    </View>
+                    <TouchableOpacity
+                        style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}
+                        onPress={() => this.props.navigation.navigate("Notice")}
+                    >
+                        <Image source={require("../../../../assets/setting2.png")} />
+                        <Text style={{ left: -115 }}>Alarm2</Text>
+                        <Text>>></Text>
+                    </TouchableOpacity>
                 </View>
-                <View style={{ flexDirection: 'column' }}>
+                <View style={{ flexDirection: 'column', marginTop: 20 }}>
                     <Text>Section2</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
-                        <Text>IMG</Text>
-                        <Text>Alarm3</Text>
+                        <Image source={require("../../../../assets/setting3.png")} />
+                        <Text style={{ left: -100 }}>Alarm3</Text>
                         <Switch
                             onValueChange={this.onValChange}
                             value={this.state.value1}
                         />
                     </View>
                     <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
-                        <Text>IMG</Text>
-                        <Text>Alarm4</Text>
+                        <Image source={require("../../../../assets/setting4.png")} />
+                        <Text style={{ left: -100 }}>Alarm4</Text>
                         <Switch
                             onValueChange={this.onValChange}
                             value={this.state.value1}
                         />
                     </View>
                 </View>
-                <View style={{ flexDirection: 'column' }}>
+                <View style={{ flexDirection: 'column', marginTop: 20 }}>
                     <Text>Section3</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
-                        <Text>IMG</Text>
-                        <Text>Alarm5</Text>
+                    <View >
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("")}
+                            style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}
+                            onPress={() => this.props.navigation.navigate("SystemAlarm")}
                         >
+                            <Image source={require("../../../../assets/setting5.png")} />
+                            <Text style={{ left: -115 }}>Alarm5</Text>
+
                             <Text>>></Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
-                        <Text>IMG</Text>
-                        <Text>Alarm6</Text>
+                        <Image source={require("../../../../assets/setting1.png")} />
+                        <Text style={{ left: -100 }}>Alarm6</Text>
                         <Switch
                             onValueChange={this.onValChange}
                             value={this.state.value1}
                         />
                     </View>
                 </View>
-                <View style={{ flexDirection: 'column' }}>
+                <View style={{ flexDirection: 'column', marginTop: 20 }}>
                     <Text>Section4</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
-                        <Text>IMG</Text>
-                        <Text>Alarm7</Text>
+                        <Image source={require("../../../../assets/setting2.png")} />
+                        <Text style={{ left: -100 }}>Alarm7</Text>
                         <Switch
                             onValueChange={this.onValChange}
                             value={this.state.value1}
                         />
                     </View>
                     <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
-                        <Text>IMG</Text>
-                        <Text>Alarm8</Text>
+                        <Image source={require("../../../../assets/setting3.png")} />
+                        <Text style={{ left: -100 }}>Alarm8</Text>
                         <Switch
                             onValueChange={this.onValChange}
                             value={this.state.value1}
                         />
                     </View>
                 </View>
-                <View style={{ flexDirection: 'column' }}>
+                <View style={{ flexDirection: 'column', marginTop: 20 }}>
                     <Text>Section5</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
-                        <Text>IMG</Text>
-                        <Text>Alarm9</Text>
+                    <View >
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("")}
+                            style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}
+                            onPress={() => this.props.navigation.navigate("Setting4")}
                         >
+                            <Image source={require("../../../../assets/setting4.png")} />
+                            <Text style={{ left: -115 }}>Alarm9</Text>
                             <Text>>></Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
-                        <Text>IMG</Text>
-                        <Text>Alarm10</Text>
+                    <View >
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("")}
+                            style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}
+                            onPress={() => this.props.navigation.navigate("Setting4")}
                         >
+                            <Image source={require("../../../../assets/setting5.png")} />
+                            <Text style={{ left: -115 }}>Alarm10</Text>
                             <Text>>></Text>
                         </TouchableOpacity>
                     </View>

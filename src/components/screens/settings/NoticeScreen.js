@@ -20,10 +20,10 @@ class NoticeScreen extends Component {
         }
 
         const dummy = [
-            { uid: 0, img: 'IMG', displayName: '새단장 중인 8.0 업데이트', },
-            { uid: 1, img: 'IMG', displayName: '어벤저스급 업데이트', },
-            { uid: 2, img: 'IMG', displayName: '추석연휴 이벤트',  },
-            { uid: 3, img: 'IMG', displayName: '안드로이드 4.0 지원중단 안내', },
+            { uid: '0', img: '1', content: '새단장 중인 8.0 업데이트', },
+            { uid: '1', img: '2', content: '어벤저스급 업데이트', },
+            { uid: '2', img: '3', content: '추석연휴 이벤트',  },
+            { uid: '3', img: '4', content: '안드로이드 4.0 지원중단 안내', },
         ]
         this.state.notice = dummy;
     }
