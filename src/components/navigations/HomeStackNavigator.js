@@ -64,16 +64,17 @@ const navigatorConfig = {
 // 이런 방식으로안하고 바로 export 하면 에러가 난다 가능하면 const를 export하는 경우 따로 지정해주자
 const HomeStackNavigator = createStackNavigator(routeConfig, navigatorConfig)
 // react에서 DOM에 직접적인 접근을 할때 ref 라는 키워드를 사용할 수 있다 
-const HomeStack = () => {
-    return (
-        <HomeStackNavigator 
-                        // ref={(navi) => {
-                        //         NavigationService.setTopLevelNavigator(navi);
-                        //     }}
-        />
-    );
-}
-export default HomeStack;
+// 아이폰에서는 아래에서 에러남
+// const HomeStack = () => {
+//     return (
+//         <HomeStackNavigator 
+//                         // ref={(navi) => {
+//                         //         NavigationService.setTopLevelNavigator(navi);
+//                         //     }}
+//         />
+//     );
+// }
+export default HomeStackNavigator;
 
 const styles = StyleSheet.create({
     txt: {
