@@ -14,7 +14,7 @@ import {
     TouchableHighlight,
     Picker
 } from "react-native";
-import { colors } from '@util/Styles'
+import { colors } from '@util/Colors'
 
 import Swiper from "react-native-swiper";
 import { ScrollableTabView, ScrollableTabBar, } from "@valdio/react-native-scrollable-tabview";

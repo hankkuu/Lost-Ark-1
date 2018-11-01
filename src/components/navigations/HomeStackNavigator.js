@@ -20,7 +20,7 @@ import DetailListScreen from '@screen/home/DetailListScreen';
 import WebViewScreen from '@screen/home/WebViewScreen';
 
 
-import { colors } from '@util/Styles';
+import { colors } from '@util/Colors';
 import { Platform, StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 
 import WebViewSwitchNavigator from '@navigation/WebViewSwitchNavigator'

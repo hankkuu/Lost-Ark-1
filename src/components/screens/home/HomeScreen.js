@@ -11,7 +11,7 @@ import Swiper from 'react-native-swiper';
 
 import NavigationService from '@navigation/options/NavigationService';
 import Button from '@shared/Button';
-import { colors } from '@util/Styles'
+import { colors } from '@util/Colors'
 
 class HomeScreen extends Component {
 

@@ -8,7 +8,7 @@ import {
 
 import TextInput from '@shared/TextInput';
 import Button from '@shared/Button';
-import { colors } from '@util/Styles'
+import { colors } from '@util/Colors'
 
 class DetailListScreen extends Component {
     constructor(props) {

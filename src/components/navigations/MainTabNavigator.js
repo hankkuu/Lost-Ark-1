@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import { colors } from '@util/Styles';
+import { colors } from '@util/Colors';
 
 import AuctionScreen from '@screen/mainTab/AuctionScreen';
 import ShopScreen from '@screen/mainTab/ShopScreen';

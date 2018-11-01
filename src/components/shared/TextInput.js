@@ -11,8 +11,8 @@ import {
   TextInputProperties,
 } from 'react-native';
 
-import { ratio } from '@util/Constants';
-import { colors } from '@util/Styles'
+import { ratio } from '@util/Styles';
+import { colors } from '@util/Colors'
 
 const styles = StyleSheet.create({
   wrapper: {

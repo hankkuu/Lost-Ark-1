@@ -4,7 +4,7 @@ import {
   Platform,
   StatusBarStyle, 
 } from 'react-native';
-import { colors } from '@util/Styles';
+import { colors } from '@util/Colors';
 
 const Shared = ({isDarkContent}) => (
   <StatusBar 

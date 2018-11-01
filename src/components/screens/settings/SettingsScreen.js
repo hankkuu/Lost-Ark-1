@@ -9,7 +9,7 @@ import {
     Image
 } from "react-native";
 
-import { colors } from '@util/Styles'
+import { colors } from '@util/Colors'
 import Button from '@shared/Button'
 import NavigationService from '@navigation/options/NavigationService';
 

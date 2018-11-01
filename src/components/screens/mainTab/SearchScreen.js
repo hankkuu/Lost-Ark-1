@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 import UserListItem from '@item/UserListItem'
-import { colors } from '@util/Styles'
+import { colors } from '@util/Colors'
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 

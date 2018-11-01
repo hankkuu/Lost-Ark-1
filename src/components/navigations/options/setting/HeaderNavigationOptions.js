@@ -6,7 +6,7 @@ import {
     TouchableOpacity
 } from "react-native";
 
-import { colors } from '@util/Styles';
+import { colors } from '@util/Colors';
 
 export const HeaderNavigationOptions = ({ navigation }) => ({
     headerBackTitle: null,
@@ -31,7 +31,7 @@ export const HeaderNavigationOptions = ({ navigation }) => ({
         return (
             <TouchableOpacity
                 activeOpacity={0.5}
-                onPress={() => { navigation.navigate('Alarm') }}
+                onPress={() => { navigation.navigate('Notice') }}
             >
                 <Text style={styles.txt}>알람
                    <Text style={styles.txtSub}>3</Text>
@@ -42,7 +42,7 @@ export const HeaderNavigationOptions = ({ navigation }) => ({
     headerRight: 
             <TouchableOpacity
                 activeOpacity={0.5}
-                onPress={() => navigation.navigate('My')}
+                onPress={() => navigation.navigate('Settings')}
             >
                 <Text style={styles.txt}>계정</Text>
             </TouchableOpacity>,

@@ -1,4 +1,4 @@
-import { colors } from '@util/Styles';
+import { colors } from '@util/Colors';
 
 export const CommonOptions = ({
 

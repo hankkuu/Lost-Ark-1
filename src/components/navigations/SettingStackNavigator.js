@@ -5,7 +5,7 @@ import { View } from 'react-native'
 import NavigationService from '@navigation/options/NavigationService';
 import { HeaderNavigationOptions } from '@navigation/options/setting/HeaderNavigationOptions';
 
-import Setting4 from '@screen/settings/Setting4';
+import SettingsScreen2 from '@screen/settings/SettingsScreen2';
 import Setting5 from '@screen/settings/Setting5';
 import Setting6 from '@screen/settings/Setting6';
 import SettingsScreen from '@screen/settings/SettingsScreen';
@@ -16,7 +16,14 @@ const routeConfig = {
     Main: { screen: SettingsScreen, navigationOptions: HeaderNavigationOptions },
     Notice: { screen: NoticeScreen },
     SystemAlarm: { screen: SystemAlarmScreen },
-    Setting4: { screen: Setting4 },
+    Settings: { screen: SettingsScreen2, navigationOptions: { title: 'Settings'.toUpperCase(),  headerTitleStyle: 
+    {
+        flex: 1,
+        color: 'black',
+        textAlign: 'center',   //
+        alignSelf: 'center',
+        marginLeft: -30, 
+    }}},
     Setting5: { screen: Setting5 },
     Setting6: { screen: Setting6 },
 }

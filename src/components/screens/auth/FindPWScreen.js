@@ -6,7 +6,7 @@ import {
     ScrollView
 } from "react-native";
 
-import { colors } from '@util/Styles';
+import { colors } from '@util/Colors';
 import TextInput from '@shared/TextInput';
 import Button from '@shared/Button';
 

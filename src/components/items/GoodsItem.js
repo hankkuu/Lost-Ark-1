@@ -7,7 +7,7 @@ import {
     Image
 } from "react-native";
 
-import { colors } from '@util/Styles';
+import { colors } from '@util/Colors';
 
 class GoodsItem extends Component {
     render() {

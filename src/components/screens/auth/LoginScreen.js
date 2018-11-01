@@ -8,7 +8,8 @@ import {
     ImageBackground
 } from "react-native";
 
-import { colors, statusBarHeight } from '@util/Styles';
+import { colors, } from '@util/Colors';
+import { statusBarHeight } from '@util/Styles'; 
 
 //import { IC_ICON } from '../../../util/Icons';
 
