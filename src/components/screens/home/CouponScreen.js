@@ -136,7 +136,8 @@ class CouponScreen extends Component {
         Platform.select({ ios: 
             Expo.Notifications.presentLocalNotificationAsync({
                 title: title,
-                body: body
+                body: body,
+                android: { icon: require("../../../../assets/setting3.png")}
             }),
             android: null
         })        

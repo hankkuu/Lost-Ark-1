@@ -25,7 +25,7 @@ export const HeaderNavigationOptions = ({ navigation }) => ({
     },
     headerTintColor: 'red',
     
-    title: "Setting",
+    title: "SETTINGS",
     headerLeft: () => {
         const { routeName } = navigation.state;
         return (

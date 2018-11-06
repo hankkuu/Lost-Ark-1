@@ -33,9 +33,9 @@ class SettingsScreen extends Component {
             <ScrollView style={styles.mainScroll}
                 contentContainerStyle={styles.container}
             >
-                <View style={{ flexDirection: 'column', }}>
-                    <Text>Section1</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                <View style={{ flexDirection: 'column', marginTop: 10, padding: 10, borderColor: 'black', borderBottomWidth: 1}}>
+                    <Text style={{marginBottom : 5}}>Section1</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
                         <Image source={require("../../../../assets/setting1.png")} />
                         <Text style={{ left: -100}}>Alarm1</Text>
                         <Switch
@@ -44,17 +44,17 @@ class SettingsScreen extends Component {
                         />
                     </View>
                     <TouchableOpacity
-                        style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}
+                        style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}
                         onPress={() => this.props.navigation.navigate("Notice")}
                     >
                         <Image source={require("../../../../assets/setting2.png")} />
-                        <Text style={{ left: -115 }}>Alarm2</Text>
-                        <Text>>></Text>
+                        <Text style={{ left: -110 }}>Alarm2</Text>
+                        <Text style={{ marginRight: 10 }}>>></Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{ flexDirection: 'column', marginTop: 20 }}>
-                    <Text>Section2</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                <View style={{ flexDirection: 'column', marginTop: 10, padding: 10, borderColor: 'black', borderBottomWidth: 1 }}>
+                    <Text style={{ marginBottom : 5}}>Section2</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
                         <Image source={require("../../../../assets/setting3.png")} />
                         <Text style={{ left: -100 }}>Alarm3</Text>
                         <Switch
@@ -62,7 +62,7 @@ class SettingsScreen extends Component {
                             value={this.state.value1}
                         />
                     </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
                         <Image source={require("../../../../assets/setting4.png")} />
                         <Text style={{ left: -100 }}>Alarm4</Text>
                         <Switch
@@ -71,20 +71,19 @@ class SettingsScreen extends Component {
                         />
                     </View>
                 </View>
-                <View style={{ flexDirection: 'column', marginTop: 20 }}>
-                    <Text>Section3</Text>
+                <View style={{ flexDirection: 'column', marginTop: 10, padding: 10, borderColor: 'black', borderBottomWidth: 1 }}>
+                    <Text style={{ marginBottom : 5}}>Section3</Text>
                     <View >
                         <TouchableOpacity
-                            style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}
+                            style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}
                             onPress={() => this.props.navigation.navigate("SystemAlarm")}
                         >
                             <Image source={require("../../../../assets/setting5.png")} />
-                            <Text style={{ left: -115 }}>Alarm5</Text>
-
-                            <Text>>></Text>
+                            <Text style={{ left: -110 }}>Alarm5</Text>
+                            <Text style={{ marginRight: 10 }}>>></Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
                         <Image source={require("../../../../assets/setting1.png")} />
                         <Text style={{ left: -100 }}>Alarm6</Text>
                         <Switch
@@ -93,9 +92,9 @@ class SettingsScreen extends Component {
                         />
                     </View>
                 </View>
-                <View style={{ flexDirection: 'column', marginTop: 20 }}>
-                    <Text>Section4</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                <View style={{ flexDirection: 'column', marginTop: 10, padding: 10, borderColor: 'black', borderBottomWidth: 1 }}>
+                    <Text style={{ marginBottom : 5}}>Section4</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
                         <Image source={require("../../../../assets/setting2.png")} />
                         <Text style={{ left: -100 }}>Alarm7</Text>
                         <Switch
@@ -103,7 +102,7 @@ class SettingsScreen extends Component {
                             value={this.state.value1}
                         />
                     </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
                         <Image source={require("../../../../assets/setting3.png")} />
                         <Text style={{ left: -100 }}>Alarm8</Text>
                         <Switch
@@ -112,26 +111,26 @@ class SettingsScreen extends Component {
                         />
                     </View>
                 </View>
-                <View style={{ flexDirection: 'column', marginTop: 20 }}>
-                    <Text>Section5</Text>
+                <View style={{ flexDirection: 'column', marginTop: 10, padding: 10, borderColor: 'black', borderBottomWidth: 1 }}>
+                    <Text style={{ marginBottom : 5}}>Section5</Text>
                     <View >
                         <TouchableOpacity
-                            style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}
+                            style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}
                             onPress={() => this.props.navigation.navigate("Setting4")}
                         >
                             <Image source={require("../../../../assets/setting4.png")} />
-                            <Text style={{ left: -115 }}>Alarm9</Text>
-                            <Text>>></Text>
+                            <Text style={{ left: -110 }}>Alarm9</Text>
+                            <Text style={{ marginRight: 10 }}>>></Text>
                         </TouchableOpacity>
                     </View>
                     <View >
                         <TouchableOpacity
-                            style={{ flexDirection: 'row', alignItems: 'stretch', justifyContent: "space-between" }}
+                            style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}
                             onPress={() => this.props.navigation.navigate("Setting4")}
                         >
                             <Image source={require("../../../../assets/setting5.png")} />
-                            <Text style={{ left: -115 }}>Alarm10</Text>
-                            <Text>>></Text>
+                            <Text style={{ left: -105 }}>Alarm10</Text>
+                            <Text style={{ marginRight: 10 }}>>></Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -143,9 +142,10 @@ export default SettingsScreen;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        //flex: 1,
         //alignItems: 'center',
         //justifyContent: 'center'
+        backgroundColor: 'white'
     },
     mainScroll: {
         //backgroundColor: colors.background,

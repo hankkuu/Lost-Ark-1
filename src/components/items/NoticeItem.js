@@ -17,9 +17,10 @@ class NoticeItem extends Component {
             <View style={styles.container}>
                 <TouchableOpacity
                     onPress={this.props.onPress}
+                    style={{ flexDirection: 'row', padding: 20}}
                 >
                     <Text style={{ fontSize: 20 }}>{img}</Text>
-                    <Text style={{ paddingLeft: 50 }}>{content}</Text>
+                    <Text style={{ marginLeft: 30, marginTop: 5}}>{content}</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -30,8 +31,8 @@ export default NoticeItem;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        flexDirection: 'row',
+        //alignItems: 'center',
+        //justifyContent: 'center',
+       
     }
 });

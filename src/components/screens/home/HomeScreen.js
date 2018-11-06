@@ -12,6 +12,7 @@ import Swiper from 'react-native-swiper';
 import NavigationService from '@navigation/options/NavigationService';
 import Button from '@shared/Button';
 import { colors } from '@util/Colors'
+import { width } from '@util/Styles'
 
 class HomeScreen extends Component {
 
@@ -58,69 +59,90 @@ class HomeScreen extends Component {
                 contentContainerStyle={styles.container}
             >
                 <View style={styles.notice}>
-                    {/* <Text style={styles.clock}>12:33</Text> */}   
                     <Swiper style={styles.wrapper} showsButtons={true} autoplay={true}
-                            buttonWrapperStyle={{}} paginationStyle={{bottom: 5}}
-                            nextButton={<Text>&gt;</Text>} prevButton={<Text>&lt;</Text>}
+                        buttonWrapperStyle={{}} paginationStyle={{ bottom: 5 }}
+                        nextButton={<Text>&gt;</Text>} prevButton={<Text>&lt;</Text>}
                     >
                         <View style={styles.slide}>
                             <TouchableOpacity style={styles.link}
                                 onPress={() => this.props.navigation.navigate('Test1')}>
-                                <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner.png")} />
+                                <Image style={{ height: "100%", width: "100%", }} source={require("../../../../assets/shop_banner.png")} />
                             </TouchableOpacity>
                         </View>
                         <View style={styles.slide}>
                             <TouchableOpacity style={styles.link}
                                 onPress={() => this.props.navigation.navigate('Test1')}>
-                                <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner2.png")} />
+                                <Image style={{ height: "100%", width: "100%", }} source={require("../../../../assets/shop_banner2.png")} />
                             </TouchableOpacity>
                         </View>
                         <View style={styles.slide}>
                             <TouchableOpacity style={styles.link}
                                 onPress={() => this.props.navigation.navigate('Test1')}>
-                                <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner3.png")} />
+                                <Image style={{ height: "100%", width: "100%", }} source={require("../../../../assets/shop_banner3.png")} />
                             </TouchableOpacity>
                         </View>
-                    </Swiper>                    
+                    </Swiper>
                 </View>
-                <View style={{ flex: 1 ,flexDirection: "row", flexWrap: 'wrap', justifyContent: 'center'}}>
+                <View>
                     <Button
-                        style={styles.btn}
+                        style={styles.btn100Percent}
                         onPress={() => this.props.navigation.navigate('Notice')}
                     >공지사항</Button>
-                    <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('Coupon')}
-                    >쿠폰</Button>
-                    <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('Recharge')}
-                    >충전</Button>  
-                    <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('AdditionService')}
-                    >부가서비스</Button>
-                    <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('MyShop')}
-                    >내 상점현황</Button>
-                    <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('PCRoom')}
-                    >전용피시방 찾기</Button>
+                </View>
+
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+                    <View style={{ width: '50%' }}>
+                        <Button
+                            style={styles.btn}
+                            onPress={() => this.props.navigation.navigate('Coupon')}
+                        >쿠폰</Button>
+                    </View>
+                    <View style={{ width: '50%' }}>
+                        <Button
+                            style={styles.btn}
+                            onPress={() => this.props.navigation.navigate('Recharge')}
+                        >충전</Button>
+                    </View>
+  
+                    <View style={{ width: '33%' }}>
+                        <Button
+                            style={styles.btn}
+                            onPress={() => this.props.navigation.navigate('AdditionService')}
+                        >부가서비스</Button>
+                    </View>
+                    <View style={{ width: '33%' }}>
+                        <Button
+                            style={styles.btn}
+                            onPress={() => this.props.navigation.navigate('MyShop')}
+                        >내 상점현황</Button>
+                    </View>
+                    <View style={{ width: '33%' }}>
+                        <Button
+                            style={styles.btn}
+                            onPress={() => this.props.navigation.navigate('PCRoom')}
+                        >전용피시방 찾기</Button>
+                    </View>
+
+                    <View style={{width: '50%'}}>
                     <Button
                         style={styles.btn}
                         onPress={() => this.props.navigation.navigate('CS')}
-                    >고객상담실</Button>         
+                    >고객상담실</Button>
+                    </View>
+                    <View style={{width: '50%'}}>
                     <Button
                         style={styles.btn}
                         onPress={() => this.props.navigation.navigate('List')}
                     >Best Practice</Button>
+                    </View>
+                    <View style={{width: '100%'}}>
                     <Button
                         style={styles.btn}
                         onPress={() => this.props.navigation.navigate('WebView')}
-                    >로스트아크 N샵</Button>     
-                    {/* <Button
+                    >로스트아크 N샵</Button>
+                    </View>
+                </View>
+                {/* <Button
                         style={styles.btn}
                         onPress={() => this.props.navigation.navigate('')}
                     >Null</Button>
@@ -132,7 +154,7 @@ class HomeScreen extends Component {
                         style={styles.btn}
                         onPress={() => this.props.navigation.navigate('')}
                     >Null</Button> */}
-                </View>
+
             </ScrollView>
         );
     }
@@ -143,22 +165,34 @@ const styles = StyleSheet.create({
     container: {
         //flex: 1,
         //backgroundColor: colors.background,
-        flexDirection: 'column',
+        //flexDirection: 'column',
         //alignItems: 'center',
         //justifyContent: 'center'
     },
     mainScroll: {
+        flex: 1
         //backgroundColor: colors.background,
+    },
+    btn100Percent: {
+        backgroundColor: colors.dusk,
+        marginTop: 5,
+        borderRadius: 20,
+        borderWidth: 2,
+        width: '100%',
+        height: 102,
+        borderColor: 'white',
+
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     btn: {
         backgroundColor: colors.dusk,
-        //alignSelf: 'center',
-        borderRadius: 4,
+        marginTop: 5,
+        borderRadius: 20,
         borderWidth: 2,
-        width: 130,
-        height: 152,
+        //width: 135,
+        height: 122,
         borderColor: 'white',
-        //marginBottom: 25,
 
         alignItems: 'center',
         justifyContent: 'center',
@@ -184,9 +218,9 @@ const styles = StyleSheet.create({
         //alignItems: "flex-start"
     },
     wrapper: {
- 
+
     },
     slide: {
-        
+
     },
 });
