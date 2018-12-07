@@ -9,9 +9,11 @@ import {
     Font,
 } from 'expo';
 import AppSwitchNavigator from '@navigation/AppSwitchNavigator';
-//import { bootstrap } from './config/bootstrap';
-import { KittenTheme } from '../config/theme';
-import { RkTheme, } from 'react-native-ui-kitten';
+import { bootstrap } from '../config/bootstrap';
+//import { KittenTheme } from '../config/theme';
+//import { RkTheme, } from 'react-native-ui-kitten';
+
+bootstrap();
 
 class App extends Component {
     constructor() {
@@ -20,80 +22,80 @@ class App extends Component {
             isLoadingComplete: false
         }
 
-        RkTheme.setTheme(KittenTheme);
+        // RkTheme.setTheme(KittenTheme);
 
-        RkTheme.setType('RkText', 'awesome', {
-            fontFamily: 'fontawesome',
-        });
+        // RkTheme.setType('RkText', 'awesome', {
+        //     fontFamily: 'fontawesome',
+        // });
 
-        RkTheme.setType('RkText', 'header1', {
-            fontSize: theme => theme.fonts.sizes.h1,
-            fontFamily: theme => theme.fonts.family.bold,
-        });
-        RkTheme.setType('RkText', 'header2', {
-            fontSize: theme => theme.fonts.sizes.h2,
-            fontFamily: theme => theme.fonts.family.bold,
-        });
-        RkTheme.setType('RkText', 'header3', {
-            fontSize: theme => theme.fonts.sizes.h3,
-            fontFamily: theme => theme.fonts.family.bold,
-        });
-        RkTheme.setType('RkText', 'header4', {
-            fontSize: theme => theme.fonts.sizes.h4,
-            fontFamily: theme => theme.fonts.family.bold,
-        });
-        RkTheme.setType('RkText', 'header5', {
-            fontSize: theme => theme.fonts.sizes.h5,
-            fontFamily: theme => theme.fonts.family.bold,
-        });
-        RkTheme.setType('RkText', 'header6', {
-            fontSize: theme => theme.fonts.sizes.h6,
-            fontFamily: theme => theme.fonts.family.bold,
-        });
-        RkTheme.setType('RkText', 'secondary1', {
-            fontSize: theme => theme.fonts.sizes.s1,
-            fontFamily: theme => theme.fonts.family.light,
-        });
-        RkTheme.setType('RkText', 'secondary2', {
-            fontSize: theme => theme.fonts.sizes.s2,
-            fontFamily: theme => theme.fonts.family.light,
-        });
-        RkTheme.setType('RkText', 'secondary3', {
-            fontSize: theme => theme.fonts.sizes.s3,
-            fontFamily: theme => theme.fonts.family.regular,
-        });
-        RkTheme.setType('RkText', 'secondary4', {
-            fontSize: theme => theme.fonts.sizes.s4,
-            fontFamily: theme => theme.fonts.family.regular,
-        });
-        RkTheme.setType('RkText', 'secondary5', {
-            fontSize: theme => theme.fonts.sizes.s5,
-            fontFamily: theme => theme.fonts.family.light,
-        });
-        RkTheme.setType('RkText', 'secondary6', {
-            fontSize: theme => theme.fonts.sizes.s6,
-            fontFamily: theme => theme.fonts.family.light,
-        });
-        RkTheme.setType('RkText', 'secondary7', {
-            fontSize: theme => theme.fonts.sizes.s7,
-            fontFamily: theme => theme.fonts.family.regular,
-        });
-        RkTheme.setType('RkText', 'primary1', {
-            fontSize: theme => theme.fonts.sizes.p1,
-            fontFamily: theme => theme.fonts.family.light,
-        });
-        RkTheme.setType('RkText', 'primary2', {
-            fontSize: theme => theme.fonts.sizes.p2,
-            fontFamily: theme => theme.fonts.family.regular,
-        });
-        RkTheme.setType('RkText', 'primary3', {
-            fontSize: theme => theme.fonts.sizes.p3,
-            fontFamily: theme => theme.fonts.family.light,
-        });
-        RkTheme.setType('RkText', 'primary4', {
-            fontSize: theme => theme.fonts.sizes.p4,
-            fontFamily: theme => theme.fonts.family.regular,
-        });
+        // RkTheme.setType('RkText', 'header1', {
+        //     fontSize: theme => theme.fonts.sizes.h1,
+        //     fontFamily: theme => theme.fonts.family.bold,
+        // });
+        // RkTheme.setType('RkText', 'header2', {
+        //     fontSize: theme => theme.fonts.sizes.h2,
+        //     fontFamily: theme => theme.fonts.family.bold,
+        // });
+        // RkTheme.setType('RkText', 'header3', {
+        //     fontSize: theme => theme.fonts.sizes.h3,
+        //     fontFamily: theme => theme.fonts.family.bold,
+        // });
+        // RkTheme.setType('RkText', 'header4', {
+        //     fontSize: theme => theme.fonts.sizes.h4,
+        //     fontFamily: theme => theme.fonts.family.bold,
+        // });
+        // RkTheme.setType('RkText', 'header5', {
+        //     fontSize: theme => theme.fonts.sizes.h5,
+        //     fontFamily: theme => theme.fonts.family.bold,
+        // });
+        // RkTheme.setType('RkText', 'header6', {
+        //     fontSize: theme => theme.fonts.sizes.h6,
+        //     fontFamily: theme => theme.fonts.family.bold,
+        // });
+        // RkTheme.setType('RkText', 'secondary1', {
+        //     fontSize: theme => theme.fonts.sizes.s1,
+        //     fontFamily: theme => theme.fonts.family.light,
+        // });
+        // RkTheme.setType('RkText', 'secondary2', {
+        //     fontSize: theme => theme.fonts.sizes.s2,
+        //     fontFamily: theme => theme.fonts.family.light,
+        // });
+        // RkTheme.setType('RkText', 'secondary3', {
+        //     fontSize: theme => theme.fonts.sizes.s3,
+        //     fontFamily: theme => theme.fonts.family.regular,
+        // });
+        // RkTheme.setType('RkText', 'secondary4', {
+        //     fontSize: theme => theme.fonts.sizes.s4,
+        //     fontFamily: theme => theme.fonts.family.regular,
+        // });
+        // RkTheme.setType('RkText', 'secondary5', {
+        //     fontSize: theme => theme.fonts.sizes.s5,
+        //     fontFamily: theme => theme.fonts.family.light,
+        // });
+        // RkTheme.setType('RkText', 'secondary6', {
+        //     fontSize: theme => theme.fonts.sizes.s6,
+        //     fontFamily: theme => theme.fonts.family.light,
+        // });
+        // RkTheme.setType('RkText', 'secondary7', {
+        //     fontSize: theme => theme.fonts.sizes.s7,
+        //     fontFamily: theme => theme.fonts.family.regular,
+        // });
+        // RkTheme.setType('RkText', 'primary1', {
+        //     fontSize: theme => theme.fonts.sizes.p1,
+        //     fontFamily: theme => theme.fonts.family.light,
+        // });
+        // RkTheme.setType('RkText', 'primary2', {
+        //     fontSize: theme => theme.fonts.sizes.p2,
+        //     fontFamily: theme => theme.fonts.family.regular,
+        // });
+        // RkTheme.setType('RkText', 'primary3', {
+        //     fontSize: theme => theme.fonts.sizes.p3,
+        //     fontFamily: theme => theme.fonts.family.light,
+        // });
+        // RkTheme.setType('RkText', 'primary4', {
+        //     fontSize: theme => theme.fonts.sizes.p4,
+        //     fontFamily: theme => theme.fonts.family.regular,
+        // });
 
     }
 

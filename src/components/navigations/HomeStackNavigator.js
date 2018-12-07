@@ -36,16 +36,15 @@ const routeConfig = {
     DetailNotice: { screen: DetailNoticeScreen },
 
     Coupon: { screen: CouponScreen, },
-    Recharge: { screen: RechargeScreen },    
+    Recharge: { screen: RechargeScreen },       
     AdditionService: { screen: AdditionServiceScreen },
 
     MyShop: { screen: MyShopScreen },
     PCRoom: { screen: PcRoomScreen },
     CS: { screen: CSScreen },
 
-    Detail: { screen: DetailListScreen },
-
     List: { screen: BestListScreen },
+    Detail: { screen: DetailListScreen },
     WebView: { screen: WebViewScreen },
 
     test: { screen: WebViewSwitchNavigator },

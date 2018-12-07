@@ -43,24 +43,25 @@ const navigatorConfig = {
             case 1:
             {
                 return ({
+                    //header: null
                     ...CommonOptions,
                     title: navigation.state.routes[index].routeName,
-                    headerLeft:
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => { navigation.navigate('My') }}
-                        >
-                            <Text style={{color: 'white', fontSize: 15,}}>관심상품</Text>
-                        </TouchableOpacity>,
-                    headerRight:
-                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <TouchableOpacity
-                                activeOpacity={0.5}
-                                onPress={() => navigation.navigate('Alarm')}
-                            >
-                                <Text style={{color: 'white', fontSize: 15,}}>구매히스토리</Text>
-                            </TouchableOpacity>
-                        </View>,
+                    // headerLeft:
+                    //     <TouchableOpacity
+                    //         activeOpacity={0.5}
+                    //         onPress={() => { navigation.navigate('My') }}
+                    //     >
+                    //         <Text style={{color: 'white', fontSize: 15,}}>관심상품</Text>
+                    //     </TouchableOpacity>,
+                    // headerRight:
+                    //     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    //         <TouchableOpacity
+                    //             activeOpacity={0.5}
+                    //             onPress={() => navigation.navigate('Alarm')}
+                    //         >
+                    //             <Text style={{color: 'white', fontSize: 15,}}>구매히스토리</Text>
+                    //         </TouchableOpacity>
+                    //     </View>,
                 });
             }
             case 2:

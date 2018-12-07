@@ -7,6 +7,7 @@ import { colors } from '@util/Colors';
 import AuctionScreen from '@screen/mainTab/AuctionScreen';
 import ShopScreen from '@screen/mainTab/ShopScreen';
 
+import ItemAuctionStackNavigator from '@navigation/ItemAuctionStackNavigator'; 
 import SettingStackNavigator from '@navigation/SettingStackNavigator';
 import HomeStackNavigator from '@navigation/HomeStackNavigator';
 import { commonNavigationOptions } from '@navigation/options/CommonNavigationOptions';
