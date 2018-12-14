@@ -9,9 +9,9 @@ import {
 
 import { Ionicons } from '@expo/vector-icons';
 import ActionButton from 'react-native-action-button';
-import ActionSheet from 'react-native-actionsheet';
+//import ActionSheet from '@expo/react-native-action-sheet';
+
 import UserListItem from '@item/UserListItem';
-import DetailListScreen from "./DetailListScreen";
 
 class BestListScreen extends Component {
     constructor(props) {
@@ -19,16 +19,20 @@ class BestListScreen extends Component {
         this.state = {
             friends: [],
             refreshing: false
-        }
+        }      
 
+    }
+
+    componentDidMount() {
         const dummy = [
             { uid: 0, img: 'KangHG', displayName: '강한규', statusMsg: 'hello' },
             { uid: 1, img: 'IMHG', displayName: '임형관', statusMsg: 'hello' },
             { uid: 2, img: 'JungDM', displayName: '정동민', statusMsg: 'hello' },
             { uid: 3, img: 'KimSK', displayName: '김성기', statusMsg: 'hello' },
         ]
-        this.state.friends = dummy;
+        this.setState({ friends: dummy });      
     }
+    
     render() {
         return (
             <View style={styles.container}>
@@ -48,14 +52,14 @@ class BestListScreen extends Component {
                         <Ionicons name='md-create' style={styles.actionButton} />
                     </ActionButton.Item>
                 </ActionButton>
-                <ActionSheet
+                {/* <ActionSheet
                     ref={(comp) => this.actionSheet = comp}
                     options={['Delete', 'Cancle']}
                     cancelButtonIndex={1}
                     destruciveButtonIndex={0}
                     onPress={this.onPressActionSheet}
                 >
-                </ActionSheet>
+                </ActionSheet> */}
             </View>
         );
     }

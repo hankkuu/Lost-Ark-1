@@ -53,6 +53,5 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        //paddingTop: statusBarHeight,
     }
 });

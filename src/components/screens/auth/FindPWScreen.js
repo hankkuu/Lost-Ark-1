@@ -7,8 +7,9 @@ import {
 } from "react-native";
 
 import { colors } from '@util/Colors';
-import TextInput from '@shared/TextInput';
+
 import Button from '@shared/Button';
+import TextInput from '@shared/TextInput';
 
 class FindPWScreen extends Component {
     static navigationOptions = {
@@ -30,17 +31,17 @@ class FindPWScreen extends Component {
                 >
                     <View style={styles.wrapper}>
                         <TextInput
-                            style={{ marginTop: 8 }}
+                            style={styles.inputBox}
                             txtLabel={('Email')}
                             txtHint={('Email')}
                             txt={this.state.email}
                             onTextChanged={(text) => this.onTextChanged('Email', text)}
-                            isPassword={true}
+                            //isPassword={true}
                         />
                         <View style={styles.btnWrapper}>
                             <Button
                                 isLoading={this.state.isLoading}
-                                onPress={this.onSendLink}
+                                onPress={this.onFindPassword}
                                 style={styles.btnRegister}
                                 textStyle={styles.txtRegister}
                             >{('Send')}</Button>
@@ -50,6 +51,7 @@ class FindPWScreen extends Component {
             </View>
         );
     }
+
     onTextChanged = (type, text) => {
         switch (type) {
             case 'Email':
@@ -57,14 +59,27 @@ class FindPWScreen extends Component {
                 return;
         }
     }
+
+    onFindPassword = () => {
+        this.setState({
+            isLoading: true
+        }, async () => {
+            try {
+                // 일단 미 구현
+            } catch (error) {
+                this.setState({ isLoading: false })
+            }
+        })
+    }
 }
 export default FindPWScreen;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: 'white',
         alignItems: 'center',
-        justifyContent: 'center'
+        //justifyContent: 'center'
     },
     scrollView: {
         alignSelf: 'stretch',
@@ -72,13 +87,15 @@ const styles = StyleSheet.create({
     scrollViewContainer: {
         justifyContent: 'center',
         alignItems: 'center',
+        paddingVertical: 40,
     },
-    wrapper: {
-        marginTop: 40,
-        width: '78%',
-
+    wrapper: {       
+        width: '80%',
         flexDirection: 'column',
         alignItems: 'center',
+    },
+    inputBox: {
+        marginTop: 10,
     },
     btnWrapper: {
         width: '100%',
@@ -104,5 +121,10 @@ const styles = StyleSheet.create({
 
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    txtRegister: {
+        fontSize: 16 ,
+        fontWeight: 'bold',
+        color: 'white',
     },
 });

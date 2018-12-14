@@ -5,16 +5,25 @@ import {
     StyleSheet,
     Image,
     TouchableOpacity,
-    ImageBackground
+    ImageBackground,
+    Keyboard,
+    AsyncStorage
 } from "react-native";
 
-import { colors, } from '@util/Colors';
-import { statusBarHeight } from '@util/Styles'; 
+import {
+    RkButton,
+    RkText,
+    RkTextInput,
+    RkAvoidKeyboard,
+    RkTheme,
+    RkStyleSheet,
+} from 'react-native-ui-kitten';
 
-//import { IC_ICON } from '../../../util/Icons';
+import { statusBarHeight } from '@util/Styles';
+import { getAssetByFilename } from '@util/Images'
 
-import TextInput from '@shared/TextInput';
-import Button from '@shared/Button';
+import { GradientButton } from '@kittenDesign/gradientButton/index';
+import { FontAwesome } from '@kittenDesign/icons';
 
 class LoginScreen extends Component {
     static navigationOptions = {
@@ -24,79 +33,98 @@ class LoginScreen extends Component {
         super(props);
         this.state = {
             isLogin: false,
-            Account: '',
-            Password: ''
+            account: '',
+            password: ''
         }
     }
     render() {
         return (
-            <View style={styles.container}>
-                <ImageBackground style={{ width: '100%', height: '100%' }}
-                    source={require('../../../../assets/lostArk5.png')}
+            <RkAvoidKeyboard
+                style={styles.screen}
+                onStartShouldSetResponder={() => true}
+                onResponderRelease={() => Keyboard.dismiss()}
+            >
+                <ImageBackground style={styles.imgBackground}
+                    source={getAssetByFilename("login")}
+                    resizeMethod='resize' // IOS에서는 기본적으로 resizing을 해주지만 Android에서는 그렇지 않다고 함
                 >
-                    <View style={styles.iconWrapper}>
-                        <Text style={styles.iconTxt}>{'Lost Ark'}</Text>
-                        {/* <Image style={styles.icon} source={}/> */}
+                    <View style={styles.header}>
+                        <RkText rkType='logo h0 primary'>Lost Ark</RkText>
+                        <RkText rkType='light h1 primary'>Companion</RkText>
                     </View>
-                    <View style={styles.wrapper}>
-                        <TextInput
-                            style={styles.txtInput}
-                            txtLabel={'Account'}
-                            txtHint={'Account'}
-                            txt={this.state.Account}
-                            onTextChanged={(text) => this.onTextChanged('Account', text)}
-                        />
-                        <TextInput
-                            style={styles.txtInput}
-                            txtLabel={'Password'}
-                            txtHint={'Password'}
-                            txt={this.state.Password}
-                            onTextChanged={(text) => this.onTextChanged('Password', text)}
-                            isPassword={true}
-                        />
-                        {/* Props.children
-                     <myComponent>xxx</myComponent>와 같이 작성할 때 xxx를 얻고자 할때는 this.props.children 프로퍼티를 사용. */}
-                        <View style={styles.viewBtnWrapper}>
-                            <Button
-                                style={styles.btnSignup}
-                                onPress={this.onSignUp}
-                            >{'sign up'}</Button>
-                            <Button
-                                isLoading={this.state.isLogin}
-                                style={styles.btnLogin}
-                                onPress={this.onLogin}
-                            >{'Login'}</Button>
+                    <View style={styles.content}>
+                        <View>
+                            <RkTextInput
+                                rkType='rounded'
+                                placeholder='Username'
+                                value={this.state.account}
+                                onChangeText={(text) => this.onTextChanged('Account', text)}
+                            />
+                            <RkTextInput
+                                rkType='rounded'
+                                placeholder='Password'
+                                secureTextEntry
+                                value={this.state.password}
+                                onChangeText={(text) => this.onTextChanged('Password', text)}
+                            />
+                            <View style={styles.btnWrap}>
+                                <GradientButton
+                                    style={styles.btn}
+                                    rkType='large'
+                                    text='LOGIN'
+                                    onPress={this.onLogin}
+                                />
+                                <GradientButton
+                                    style={styles.btn}
+                                    rkType='large'
+                                    text='SIGN UP'
+                                    onPress={this.onSignUp}
+                                />
+                            </View>
                         </View>
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={this.onFindPW}
-                            style={styles.btnFindPW}
-                        >
-                            <Text style={styles.txtFindPW}>{'Find my password'}</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{ flexDirection: "row-reverse", }}>
-                        {/* <Image style={styles.imgCopyright} source={require('../../../../assets/smilegate_rpg.png')} ></Image> */}
-                        <Text style={styles.txtCopyright}>copyright by smilegate RPG</Text>
+                        <View style={styles.btnSocialWrap}>
+                            <RkButton style={styles.btnSocial} rkType='social'>
+                                <RkText rkType='awesome hero'>{FontAwesome.twitter}</RkText>
+                            </RkButton>
+                            <RkButton style={styles.btnSocial} rkType='social'>
+                                <RkText rkType='awesome hero'>{FontAwesome.google}</RkText>
+                            </RkButton>
+                            <RkButton style={styles.btnSocial} rkType='social'>
+                                <RkText rkType='awesome hero'>{FontAwesome.facebook}</RkText>
+                            </RkButton>
+                        </View>
+                        <View style={styles.footer}>
+                            <View style={styles.textRow}>
+                                <RkText rkType='primary3' style={styles.baseFont}>Do you forgot your account?</RkText>
+                                <RkButton rkType='clear' onPress={this.onFindPW}>
+                                    <RkText rkType='header6' style={styles.baseFont}>Find my password</RkText>
+                                </RkButton>
+                            </View>
+                        </View>
+                        <View style={styles.logoWrap}>
+                            <Image style={styles.logo} source={getAssetByFilename("stoveLogo")} />
+                            <Image style={styles.logo} source={getAssetByFilename("rpgLogo")} />
+                        </View>
                     </View>
                 </ImageBackground>
-            </View>
+            </RkAvoidKeyboard>
         );
     }
 
     onTextChanged = (type, text) => {
         switch (type) {
             case 'Account':
-                this.setState({ Account: text });
+                this.setState({ account: text });
                 return;
             case 'Password':
-                this.setState({ Password: text });
+                this.setState({ password: text });
                 return;
         }
     }
     onSignUp = () => {
         this.props.navigation.navigate('SignUp');
     }
+
     onLogin = () => {
         this.setState({
             isLogin: true
@@ -104,106 +132,121 @@ class LoginScreen extends Component {
             // 원래는 네트워크 통신으로 인증을 해야 한다.. 임시방편 
             //const userData = auth(this.state.email, this.state.pw);
             //console.log(userData);
+
+            // 원래는 아래와 같은 방법으로 해야 함
+            // let formData = new FormData();
+            // formData.append('account', this.state.account);
+            // formData.append('password', this.state.password);
+
+            // fetch(GOBAL.HOST + 'mobile/login', {
+            //     method: 'POST',
+            //     body: formData
+            // })
+            // .then((response) => response.json())
+            // .then((responseJson) => {
+            //     this.onLoginResult(responseJson);
+            // })
+            // .catch((error) => {
+            //     console.log(error);
+            // });
+
+            var ret = { success: true, token: 'success' }
+            this.onLoginResult(ret);
+
             this.props.navigation.navigate('Loading', { isLogin: true });
         })
     }
+
+    onLoginResult = (result) => {
+        //console.log(result);
+        if(!result.success) {
+            alert('로그인정보를 확인해라');
+            return;
+        }
+        // 세션 토큰을 사용하면 앱을 계속 로그인 하고 할 수 있다 
+
+        try {
+            AsyncStorage.setItem('@Session:token', result.token);            
+        } catch (error) {
+            alert('로그인에 실패했습니다')
+        }
+
+        // this.props.navigation.dispatch({
+        //     type: 'Navigation/RESET',
+        //     index: 0,
+        //     actions: [{ routeName: 'List'}]
+        // })
+    }
+
     onFindPW = () => {
         this.props.navigation.navigate('FindPW');
     }
 
 
+
+
 }
 export default LoginScreen;
 
-const styles = StyleSheet.create({
-    container: {
+const styles = RkStyleSheet.create(theme => ({
+    screen: {
+        //padding: scaleVertical(16),
         flex: 1,
         paddingTop: statusBarHeight,
-        alignItems: 'center',
-        backgroundColor: 'white',
-        flexDirection: 'column',
+        justifyContent: 'space-between',
+        //backgroundColor: theme.colors.screen.base,
     },
-    iconWrapper: {
-        position: 'absolute',
-        top: 76,
-        left: 40,
-        flexDirection: 'column',
-        alignItems: 'flex-start',
+    imgBackground: {
+        width: '100%',
+        height: '100%',
     },
-    icon: {
-        width: 60,
-        height: 48,
+    header: {
+        marginTop: 50,
+        left: 20
     },
-    iconTxt: {
-        color: colors.paleGray,
-        fontSize: 33,
-        fontWeight: 'bold',
-        marginTop: 16,
+    content: {
+        top: 80,
+        margin: 20,
     },
-    wrapper: {
-        marginTop: 260,
-        width: '78%',
-        height: 300,
-
-        flexDirection: 'column',
-        alignItems: 'center',
-        left: 45
+    btnWrap: {
+        flexDirection: "row",
+        justifyContent: 'space-around'
     },
-    viewBtnWrapper: {
-        alignSelf: 'stretch',
-        marginTop: 20,
-
+    btn: {
+        marginVertical: 20,
+        width: 150,
+        marginLeft: 10,
+        marginRight: 10,
+    },
+    btnSocialWrap: {
         flexDirection: 'row',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
+        //marginBottom: scaleVertical(24),
+        marginHorizontal: 24,
+        justifyContent: 'space-around',
     },
-    btnSignup: {
-        backgroundColor: colors.dusk,
-        borderColor: colors.dusk,
-        alignSelf: 'center',
-        borderRadius: 4,
-        borderWidth: 1,
-        width: 136,
-        height: 60,
-        alignItems: 'center',
-        justifyContent: 'center',
+    btnSocial: {
+        borderColor: theme.colors.border.solid,
+    },
+    baseFont: {
+        color: 'white'
+    },
+    footer: {
 
-        marginRight: 49,
     },
-    btnLogin: {
-        backgroundColor: colors.dusk,
-        borderColor: colors.dusk,
-        alignSelf: 'center',
-        borderRadius: 4,
-        borderWidth: 1,
-        width: 136,
-        height: 60,
-        alignItems: 'center',
+    textRow: {
+        flexDirection: 'column',
         justifyContent: 'center',
-
-        //marginLeft: 4,
-        // shadowColor: colors.dusk,
-        // shadowOffset: {
-        //     width: 0,
-        //     height: 10,
-        // },
-        // shadowRadius: 4,
-        // shadowOpacity: 0.3, 
+        alignItems: 'center',
     },
-    btnFindPW: {
-        marginTop: 20,
+    logoWrap: {
+        flexDirection: 'row',
+        marginTop: 10,
+        justifyContent: "space-around"
     },
-    txtFindPW: {
-        fontSize: 12,
-        color: colors.dodgerBlue,
-        textDecorationLine: 'underline',
+    logo: {
+        marginLeft: -80,
+        marginRight: -80,
+        width: 70,
+        height: 60
     },
-    txtCopyright: {
-        marginTop: 60,
-        fontSize: 12,
-        color: colors.paleGray,
-    },
-    imgCopyright: {
-        width: '70%'
-    }
-});
+}));

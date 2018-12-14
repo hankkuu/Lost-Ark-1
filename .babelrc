@@ -8,15 +8,17 @@
   "plugins": [
     ["module-resolver", {
       "root": ["."],
-      "alias": {
+      "alias": {		
+		'@app': './src',
+        '@asset': './assets',       
+        "@util": "./src/util",
         "@screen": "./src/components/screens",
         "@navigation": "./src/components/navigations",
-        "@util": "./src/util",
-        "@asset": "./assets",
-        "@shared": "./src/components/shared",
-        "@app": "./src",
+        "@shared": "./src/components/shared", 
+        "@kittenDesign": "./src/config",
+        "@item": "./src/components/items",
         "@expo": "./node_modules/@expo",
-        "@item": "./src/components/items"
+        "@api": "./src/apis",
         }
       }
     ]

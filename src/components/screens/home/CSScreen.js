@@ -7,6 +7,8 @@ import {
     Image
 } from "react-native";
 
+import { getAssetByFilename } from '@util/Images';
+
 class CSScreen extends Component {
     constructor(props) {
         super(props)
@@ -27,7 +29,7 @@ class CSScreen extends Component {
                             onSubmitEditing={this.onSearch}
                             defaultValue={this.state.searchTxt}
                         />
-                        <Image source={require('../../../../assets/picSearch.png')}
+                        <Image source={getAssetByFilename('search')}
                             style={styles.imgSearch}
                         />
             </View>

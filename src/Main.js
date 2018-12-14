@@ -1,108 +1,50 @@
 import React, { Component } from "react";
-import {
+import { 
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    Image
 } from "react-native";
 import {
     AppLoading,
     Font,
+    Asset
 } from 'expo';
+import { bootstrap } from '@kittenDesign/bootstrap';
 import AppSwitchNavigator from '@navigation/AppSwitchNavigator';
-import { bootstrap } from '../config/bootstrap';
-//import { KittenTheme } from '../config/theme';
-//import { RkTheme, } from 'react-native-ui-kitten';
+import { getAllofAsset } from '@util/Images';
+import { data } from './test'
 
 bootstrap();
+data.populateData();
 
 class App extends Component {
-    constructor() {
+    constructor(){
         super();
         this.state = {
-            isLoadingComplete: false
+            isLoaded: false
         }
-
-        // RkTheme.setTheme(KittenTheme);
-
-        // RkTheme.setType('RkText', 'awesome', {
-        //     fontFamily: 'fontawesome',
-        // });
-
-        // RkTheme.setType('RkText', 'header1', {
-        //     fontSize: theme => theme.fonts.sizes.h1,
-        //     fontFamily: theme => theme.fonts.family.bold,
-        // });
-        // RkTheme.setType('RkText', 'header2', {
-        //     fontSize: theme => theme.fonts.sizes.h2,
-        //     fontFamily: theme => theme.fonts.family.bold,
-        // });
-        // RkTheme.setType('RkText', 'header3', {
-        //     fontSize: theme => theme.fonts.sizes.h3,
-        //     fontFamily: theme => theme.fonts.family.bold,
-        // });
-        // RkTheme.setType('RkText', 'header4', {
-        //     fontSize: theme => theme.fonts.sizes.h4,
-        //     fontFamily: theme => theme.fonts.family.bold,
-        // });
-        // RkTheme.setType('RkText', 'header5', {
-        //     fontSize: theme => theme.fonts.sizes.h5,
-        //     fontFamily: theme => theme.fonts.family.bold,
-        // });
-        // RkTheme.setType('RkText', 'header6', {
-        //     fontSize: theme => theme.fonts.sizes.h6,
-        //     fontFamily: theme => theme.fonts.family.bold,
-        // });
-        // RkTheme.setType('RkText', 'secondary1', {
-        //     fontSize: theme => theme.fonts.sizes.s1,
-        //     fontFamily: theme => theme.fonts.family.light,
-        // });
-        // RkTheme.setType('RkText', 'secondary2', {
-        //     fontSize: theme => theme.fonts.sizes.s2,
-        //     fontFamily: theme => theme.fonts.family.light,
-        // });
-        // RkTheme.setType('RkText', 'secondary3', {
-        //     fontSize: theme => theme.fonts.sizes.s3,
-        //     fontFamily: theme => theme.fonts.family.regular,
-        // });
-        // RkTheme.setType('RkText', 'secondary4', {
-        //     fontSize: theme => theme.fonts.sizes.s4,
-        //     fontFamily: theme => theme.fonts.family.regular,
-        // });
-        // RkTheme.setType('RkText', 'secondary5', {
-        //     fontSize: theme => theme.fonts.sizes.s5,
-        //     fontFamily: theme => theme.fonts.family.light,
-        // });
-        // RkTheme.setType('RkText', 'secondary6', {
-        //     fontSize: theme => theme.fonts.sizes.s6,
-        //     fontFamily: theme => theme.fonts.family.light,
-        // });
-        // RkTheme.setType('RkText', 'secondary7', {
-        //     fontSize: theme => theme.fonts.sizes.s7,
-        //     fontFamily: theme => theme.fonts.family.regular,
-        // });
-        // RkTheme.setType('RkText', 'primary1', {
-        //     fontSize: theme => theme.fonts.sizes.p1,
-        //     fontFamily: theme => theme.fonts.family.light,
-        // });
-        // RkTheme.setType('RkText', 'primary2', {
-        //     fontSize: theme => theme.fonts.sizes.p2,
-        //     fontFamily: theme => theme.fonts.family.regular,
-        // });
-        // RkTheme.setType('RkText', 'primary3', {
-        //     fontSize: theme => theme.fonts.sizes.p3,
-        //     fontFamily: theme => theme.fonts.family.light,
-        // });
-        // RkTheme.setType('RkText', 'primary4', {
-        //     fontSize: theme => theme.fonts.sizes.p4,
-        //     fontFamily: theme => theme.fonts.family.regular,
-        // });
-
+        // 기본 어셋 로딩(생성자에서 할 경우) 아래는 컴포넌트에서 하는 것으로 한다  
+        //this.loadAssets().then(this.onAssetsLoaded);      
     }
 
-    componentWillMount() {
-        this.loadAssets();
+    cacheImages(images) {
+        return images.map(image => {
+            if(typeof image === 'string') {
+                return Image.prefetch(image);
+            } else {
+                return Asset.fromModule(image).downloadAsync();
+            }
+        });
     }
 
+    // https://docs.expo.io/versions/v31.0.0/guides/offline-support.html
+    // https://docs.expo.io/versions/v31.0.0/guides/preloading-and-caching-assets.html
+    // https://docs.expo.io/versions/v31.0.0/guides/assets.html
+    // 위 내용은 나중에 다시확인 
+    // app Expo.update() (자동/수동)
+    // OTA (변경내용 업데이트)
+    // load image asset 
     loadAssets = async () => {
         await Font.loadAsync({
             fontawesome: require('@asset/fonts/fontawesome.ttf'),
@@ -112,31 +54,45 @@ class App extends Component {
             'Roboto-Medium': require('@asset/fonts/Roboto-Medium.ttf'),
             'Roboto-Regular': require('@asset/fonts/Roboto-Regular.ttf'),
             'Roboto-Light': require('@asset/fonts/Roboto-Light.ttf'),
+            'Space-Mono': require('@asset/fonts/SpaceMono-Regular.ttf'),
         });
-        this.setState({ isLoadingComplete: true });
-    };
-
-
-    render() {
-        if (!this.state.isLoadingComplete) {
-            return (
-                <AppLoading />
-            );
-        } else {
-            return (
-                <View style={styles.container}>
-                    <AppSwitchNavigator />
-                </View>
-            );
-        }
+        //await Asset.loadAsync([
+        //    getAssetByFilename('splash')
+        //])
+        //위와는 다른 방식으로 // https://docs.expo.io/versions/v31.0.0/guides/preloading-and-caching-assets
+        const arr = getAllofAsset();
+        //console.log(arr);
+        await this.cacheImages(arr);
+    }    
+    onAssetsLoaded = () => {
+        this.setState({ isLoaded: true });
     }
+    onError = (error) => {
+        // In this case, you might want to report the error to your error
+        // reporting service, for example Sentry
+        console.warn(error);
+    }
+
+    renderLoading = () => ( 
+        <AppLoading
+            startAsync={this.loadAssets}
+            onFinish={this.onAssetsLoaded} 
+            onError={this.onError}
+        /> 
+    );
+
+    renderApp = () => (        
+        <View style={styles.container}>
+            <AppSwitchNavigator />
+        </View>                
+    )
+
+    render = () => ( !this.state.isLoaded ? this.renderLoading() : this.renderApp() )
 }
 export default App;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        //alignItems: 'center',   // 여기를 주석을 걸어야 화면이 나온다... 이유는?? 
-        justifyContent: 'center'
     }
 });

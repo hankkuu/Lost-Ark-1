@@ -1,5 +1,5 @@
 // export default { ... } 로 만들면 import Colors from '../Colors 이렇게 쓰고 
-// export 만 만들어서 사용하면 import { ..... } from '../Colors 이렇게 사용해야 한다 
+// export 만 만들어서 사용하면 import { Red, yellow } from '../Colors 이렇게 사용해야 한다 
 // as 라고 된 부분은 이름을 변경하는 것이고 * 로 가져오는 것은 전체를 가져오는 것이다 
 
 export const colors = {

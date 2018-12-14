@@ -1,6 +1,10 @@
-import { Easing, Animated } from 'react-native';
+import 
+{ 
+  Easing, 
+  Animated 
+} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-import { commonNavigationOptions } from '@navigation/options/CommonNavigationOptions';
+import { RightHeaderNavigationOptions } from '@navigation/options/RightHeaderNavigationOptions';
 // 화면전환시 에니메이션 효과이다... 이런 디테일은 뭐.. 옵션은 아래서 설정 
 import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 
@@ -14,7 +18,7 @@ export default AuthStackNavigator = createStackNavigator({
     FindPW: { screen: FindPWScreen }
 }, {
     initialRouteName: "Login",
-    navigationOptions: commonNavigationOptions,
+    navigationOptions: RightHeaderNavigationOptions,
 
     // 아래 방식은 옛날 방식이다 경로를 지정해 주는데 이 경로가 라이브러리 버전이 바뀌면 같이 바뀐다 
     //transitionConfig: () => ({ screenInterpolator: StackViewStyleInterpolator.forFade }),

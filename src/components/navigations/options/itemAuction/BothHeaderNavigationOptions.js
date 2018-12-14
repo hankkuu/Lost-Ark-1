@@ -30,19 +30,18 @@ export const BothHeaderNavigationOptions = ({ navigation }) => ({
             activeOpacity={0.5}
             onPress={() => { navigation.navigate('') }}
         >
-            <Text style={{ color: 'white', fontSize: 15, }}>관심상품</Text>
+            <Text style={styles.txt}>관심상품</Text>
         </TouchableOpacity>,
     headerRight:
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View>
             <TouchableOpacity
                 activeOpacity={0.5}
                 onPress={() => navigation.navigate('')}
             >
-                <Text style={{ color: 'white', fontSize: 15, }}>구매히스토리</Text>
+                <Text style={styles.txt}>경매내역</Text>
             </TouchableOpacity>
         </View>,
 })
-
 
 const styles = StyleSheet.create({
     leftWrap: {

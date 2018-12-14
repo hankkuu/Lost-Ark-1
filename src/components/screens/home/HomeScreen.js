@@ -7,80 +7,54 @@ import {
     TouchableOpacity,
     Image
 } from "react-native";
+import { Permissions, Notifications } from 'expo';
 import Swiper from 'react-native-swiper';
 
-import NavigationService from '@navigation/options/NavigationService';
 import Button from '@shared/Button';
 import { colors } from '@util/Colors'
-import { width } from '@util/Styles'
+import { getAssetByFilename } from '@util/Images'
 
 class HomeScreen extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             noticeList: [],
             notice: '',
-            name: 'Home'
+            token: null,
+            notification: null,
+            swipe: [
+                { imageName: 'banner1' },
+                { imageName: 'banner2' },
+                { imageName: 'banner3' },
+            ]
         }
-
-        const dummyNotice = [
-            { uid: 0, text: '[공지]로스트 아크 앱 출시' },
-            { uid: 1, text: '[사과]로스트 아크 버그 발견' },
-            { uid: 2, text: '[공지]로스트 아크 이벤트' },
-            { uid: 3, text: '[점검]로스트 아크 정기 점검' },
-        ]
-        this.state.noticeList = dummyNotice;
-        //console.log( this.state.noticeList);
-        //this.setState({
-        this.state.notice = this.state.noticeList[0].text
-        //})
-        //this.state.notice = noticeList[0];
     }
 
     componentDidMount() {
-        let count = this.state.noticeList.length;
-        let i = 0;
-        // setInterval(() => {
-        //     if(i === count) {
-        //         i = 0;
-        //     }
-        //     this.setState({
-        //         notice: this.state.noticeList[i].text
-        //     })
-        //     i++;
-        // }, 3000);
+        this.registerForPushNotification();
     }
 
     render() {
-        const { name } = this.state;
         return (
-            <ScrollView style={styles.mainScroll}
-                contentContainerStyle={styles.container}
+            <ScrollView style={styles.container}
+                contentContainerStyle={styles.scrollViewContainer}
             >
                 <View style={styles.notice}>
-                    <Swiper style={styles.wrapper} showsButtons={true} autoplay={true}
+                    <Swiper style={styles.swiper} showsButtons={true} autoplay={true}
                         buttonWrapperStyle={{}} paginationStyle={{ bottom: 5 }}
                         nextButton={<Text>&gt;</Text>} prevButton={<Text>&lt;</Text>}
                     >
-                        <View style={styles.slide}>
-                            <TouchableOpacity style={styles.link}
-                                onPress={() => this.props.navigation.navigate('Test1')}>
-                                <Image style={{ height: "100%", width: "100%", }} source={require("../../../../assets/shop_banner.png")} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.slide}>
-                            <TouchableOpacity style={styles.link}
-                                onPress={() => this.props.navigation.navigate('Test1')}>
-                                <Image style={{ height: "100%", width: "100%", }} source={require("../../../../assets/shop_banner2.png")} />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.slide}>
-                            <TouchableOpacity style={styles.link}
-                                onPress={() => this.props.navigation.navigate('Test1')}>
-                                <Image style={{ height: "100%", width: "100%", }} source={require("../../../../assets/shop_banner3.png")} />
-                            </TouchableOpacity>
-                        </View>
+                        {this.state.swipe.map((data, index) => {
+                            const { imageName } = data;
+                            return (
+                                <View key={index} style={styles.slide}>
+                                    <TouchableOpacity
+                                        onPress={() => this.props.navigation.navigate('')}>
+                                        <Image style={styles.imgBanner} source={getAssetByFilename(imageName)} />
+                                    </TouchableOpacity>
+                                </View>
+                            )
+                        })}                       
                     </Swiper>
                 </View>
                 <View>
@@ -90,7 +64,7 @@ class HomeScreen extends Component {
                     >공지사항</Button>
                 </View>
 
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' }}>
+                <View style={styles.gridSpace}>
                     <View style={{ width: '50%' }}>
                         <Button
                             style={styles.btn}
@@ -103,7 +77,7 @@ class HomeScreen extends Component {
                             onPress={() => this.props.navigation.navigate('Recharge')}
                         >충전</Button>
                     </View>
-  
+
                     <View style={{ width: '33%' }}>
                         <Button
                             style={styles.btn}
@@ -123,55 +97,85 @@ class HomeScreen extends Component {
                         >전용피시방 찾기</Button>
                     </View>
 
-                    <View style={{width: '50%'}}>
-                    <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('CS')}
-                    >고객상담실</Button>
+                    <View style={{ width: '50%' }}>
+                        <Button
+                            style={styles.btn}
+                            onPress={() => this.props.navigation.navigate('CS')}
+                        >고객상담실</Button>
                     </View>
-                    <View style={{width: '50%'}}>
-                    <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('List')}
-                    >Best Practice</Button>
+                    <View style={{ width: '50%' }}>
+                        <Button
+                            style={styles.btn}
+                            onPress={() => this.props.navigation.navigate('List')}
+                        >Best Practice</Button>
                     </View>
-                    <View style={{width: '100%'}}>
-                    <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('WebView')}
-                    >로스트아크 N샵</Button>
+                    <View style={{ width: '100%' }}>
+                        <Button
+                            style={styles.btn}
+                            onPress={() => this.props.navigation.navigate('WebView')}
+                        >로스트아크 N샵</Button>
                     </View>
                 </View>
-                {/* <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('')}
-                    >Null</Button>
-                    <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('')}
-                    >Null</Button>
-                    <Button
-                        style={styles.btn}
-                        onPress={() => this.props.navigation.navigate('')}
-                    >Null</Button> */}
-
             </ScrollView>
         );
     }
+
+    registerForPushNotification = async () => {
+        const { status } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+        if (status !== 'granted') {
+            const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+            if (status !== 'granted') {
+                return;
+            }
+        }
+
+        const token = await Notifications.getExpoPushTokenAsync();
+        this.subscription = Notifications.addListener(this.handleNotification);
+        this.setState({ token });
+
+        // Push Server 연동은 일단 보류
+        // return fetch(PUSH_REGISTRATION_ENDPOINT, {
+        //     method: 'POST',
+        //     headers: {
+        //       'Accept': 'application/json',
+        //       'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //       token: {
+        //         value: token,
+        //       },
+        //       user: {
+        //         username: 'warly',
+        //         name: 'Dan Ward'
+        //       },
+        //     }),
+        //   });
+    }
+
+    handleNotification = (notification) => {
+        this.setState({ notification, });
+    };
 }
 export default HomeScreen;
 
 const styles = StyleSheet.create({
     container: {
-        //flex: 1,
-        //backgroundColor: colors.background,
-        //flexDirection: 'column',
-        //alignItems: 'center',
-        //justifyContent: 'center'
+        flex: 1,
+        backgroundColor: 'white',
     },
-    mainScroll: {
-        flex: 1
-        //backgroundColor: colors.background,
+    scrollViewContainer: {
+        paddingVertical: 0,
+    },
+    notice: {
+        flexDirection: "row",
+        //justifyContent: "space-around",
+        height: 180,                        // 감싸고 있는 View를 기준으로 잡는다
+        //alignItems: 'center',
+    },
+    gridSpace: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center'
     },
     btn100Percent: {
         backgroundColor: colors.dusk,
@@ -188,39 +192,26 @@ const styles = StyleSheet.create({
     btn: {
         backgroundColor: colors.dusk,
         marginTop: 5,
+
         borderRadius: 20,
         borderWidth: 2,
-        //width: 135,
-        height: 122,
-        borderColor: 'white',
 
+        height: 122,
+        borderColor: 'red',
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    notice: {
-        flexDirection: "row",
-        justifyContent: "space-around",
-        //alignItems: "flex-start",
-        height: 80,
 
-        //borderColor: 'red',
-        alignItems: 'center',
-        //justifyContent: 'flex-start',
+        marginHorizontal: 3,
     },
-    clock: {
-        //justifyContent:"space-around"
-    },
-    content: {
-        //justifyContent:"center"
-    },
-    link: {
-        //justifyContent:"space-around",
-        //alignItems: "flex-start"
-    },
-    wrapper: {
-
+    swiper: {
+        //height: 180
     },
     slide: {
-
+        height: "100%", 
+        width: "100%",
     },
+    imgBanner: {
+        height: "100%", 
+        width: "100%",
+    }
 });
